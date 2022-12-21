@@ -1,0 +1,27 @@
+nav {
+  height: 80px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  color: red;
+  margin-inline: 44px;
+}
+
+section {
+  min-height: 100vh;
+}
+/*# sourceMappingURL=style.css.map */
