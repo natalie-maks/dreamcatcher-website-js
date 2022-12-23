@@ -1,5 +1,26 @@
-nav {
-  height: 80px;
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  background-color: #0e0303;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  width: 100%;
+  height: 100%;
+}
+
+header nav {
+  position: absolute;
+  background-color: rgba(43, 31, 31, 0.4);
+  height: 56px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7,21 +28,101 @@ nav {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-nav ul {
+header nav ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header nav ul li {
+  color: #fff;
+  margin-inline: 30px;
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+header img {
+  width: 100%;
+  height: auto;
+}
+
+div.red-line {
+  background-color: #c91919;
+  height: 60px;
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 600;
+  display: none;
+}
+
+section {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.promo {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.promo img {
+  width: 280px;
+  margin-block: 44px;
+}
+
+.promo h1 {
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.promo p {
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: 400;
+}
+
+.promo .listen-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: 500;
+}
+
+.promo .listen-icons p {
+  margin-right: 80px;
+}
+
+.promo .listen-icons ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   list-style: none;
 }
 
-nav ul li {
-  color: red;
-  margin-inline: 44px;
-}
-
-section {
-  min-height: 100vh;
+.promo .listen-icons ul li {
+  margin-right: 48px;
 }
 /*# sourceMappingURL=style.css.map */
