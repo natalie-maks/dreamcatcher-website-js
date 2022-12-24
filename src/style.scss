@@ -13,6 +13,28 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+@mixin header1 {
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 500;
+}
+@mixin header2 {
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: 400;
+}
+@mixin main-text {
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 300;
+}
+@mixin notes-it {
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 300;
+  font-style: italic;
+}
+
 header {
   width: 100%;
   height: 100%;
@@ -67,6 +89,18 @@ section {
   column-gap: 20px;
 }
 
+@mixin rotated-text {
+  font-size: 100px;
+  line-height: 100px;
+  font-weight: 600;
+  transform-origin: top left;
+  transform: rotateZ(90deg) translateY(-100px);
+
+  span {
+    color: $red-color;
+  }
+}
+
 .promo {
   height: 100vh;
   display: flex;
@@ -80,24 +114,17 @@ section {
   }
 
   h1 {
-    font-size: 40px;
-    line-height: 40px;
-    font-weight: 500;
+    @include header1;
     margin-bottom: 24px;
   }
 
   p {
-    font-size: 32px;
-    line-height: 32px;
-    font-weight: 400;
+    @include header2;
   }
 
   .listen-icons {
     display: flex;
-    font-size: 32px;
-    line-height: 32px;
-    font-weight: 500;
-
+    @include header2;
     p {
       margin-right: 80px;
     }
@@ -108,6 +135,10 @@ section {
 
       li {
         margin-right: 48px;
+
+        &:last-of-type() {
+          margin-right: 0;
+        }
       }
     }
   }
@@ -117,24 +148,13 @@ section {
   @include disp-grid;
 
   h1 {
-    font-size: 100px;
-    line-height: 100px;
-    font-weight: 600;
-    transform-origin: top left;
-    transform: rotateZ(90deg) translateY(-100px);
-
+    @include rotated-text;
     grid-column: 1/5;
-
-    span {
-      color: $red-color;
-    }
   }
 
   p {
+    @include main-text;
     grid-column: 5/12;
-    font-size: 20px;
-    line-height: 32px;
-    font-weight: 300;
     display: flex;
     align-items: center;
   }
@@ -144,18 +164,10 @@ section {
   @include disp-grid;
 
   h1 {
-    font-size: 100px;
-    line-height: 100px;
-    font-weight: 600;
-    transform-origin: top left;
-    transform: rotateZ(90deg) translateY(-100px);
+    @include rotated-text;
+
     width: 120%;
-
     grid-column: 1/6;
-
-    span {
-      color: $red-color;
-    }
   }
 
   .wrapper {
@@ -176,17 +188,12 @@ section {
       height: fit-content;
 
       h2 {
-        font-size: 32px;
-        line-height: 32px;
-        font-weight: 400;
+        @include header2;
         margin-bottom: 12px;
       }
 
       p {
-        font-size: 18px;
-        line-height: 20px;
-        font-style: italic;
-        font-weight: 300;
+        @include notes-it;
         height: 40px;
         margin-bottom: 36px;
       }
