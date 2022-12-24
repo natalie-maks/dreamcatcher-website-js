@@ -65,6 +65,7 @@ div.red-line {
 section {
   min-height: 100vh;
   width: 100%;
+  margin-bottom: 200px;
 }
 
 .promo {
@@ -124,5 +125,47 @@ section {
 
 .promo .listen-icons ul li {
   margin-right: 48px;
+}
+
+.about {
+  padding: 60px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[12];
+      grid-template-columns: repeat(12, 1fr);
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+}
+
+.about h1 {
+  font-size: 100px;
+  line-height: 100px;
+  font-weight: 600;
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+  -webkit-transform: rotateZ(90deg) translateY(-100px);
+          transform: rotateZ(90deg) translateY(-100px);
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-column: 1/5;
+}
+
+.about h1 span {
+  color: #c91919;
+}
+
+.about p {
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 7;
+  grid-column: 5/12;
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 300;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=style.css.map */
