@@ -207,6 +207,37 @@ section {
 }
 
 .music {
+  @include disp-grid;
+
+  h1 {
+    @include rotated-text;
+    grid-column: 1/7;
+  }
+
+  .wrapper {
+    grid-column: 7/12;
+
+    h2 {
+      @include header2;
+      margin-bottom: 44px;
+
+      margin-top: 92px;
+    }
+
+    ul {
+      list-style: none;
+    }
+    li {
+      @include main-text;
+      margin-bottom: 24px;
+
+      span {
+        @include notes-it;
+        display: block;
+        margin-top: 8px;
+      }
+    }
+  }
 }
 
 .events {
