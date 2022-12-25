@@ -237,6 +237,7 @@ section {
         margin-bottom: 24px;
         display: grid;
         grid-template-columns: repeat(6, 1fr);
+        column-gap: 20px;
 
         span:nth-of-type(1) {
           grid-column: 1;
@@ -247,6 +248,41 @@ section {
         }
         span:nth-of-type(3) {
           grid-column: 4/7;
+        }
+      }
+    }
+  }
+}
+
+.media {
+  @include disp-grid;
+
+  h1 {
+    @include rotated-text;
+    grid-column: 1/5;
+  }
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    grid-column: 5/11;
+
+    ul {
+      @include header2;
+
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 20px;
+      width: 100%;
+      height: fit-content;
+
+      li {
+        margin-bottom: 72px;
+
+        a {
+          color: #fff;
+          text-decoration: none;
         }
       }
     }
