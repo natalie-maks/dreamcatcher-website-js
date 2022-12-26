@@ -28,6 +28,11 @@ body {
   line-height: 20px;
   font-weight: 300;
 }
+@mixin notes-text {
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 300;
+}
 @mixin notes-it {
   font-size: 18px;
   line-height: 20px;
@@ -175,32 +180,113 @@ section {
     grid-column: 6/12;
     display: flex;
     align-items: center;
-  }
 
-  ul {
-    list-style: none;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 20px;
-    height: fit-content;
-
-    li {
+    ul {
+      list-style: none;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 20px;
       height: fit-content;
 
-      h2 {
-        @include header2;
-        margin-bottom: 12px;
+      li {
+        height: fit-content;
+
+        h2 {
+          @include header2;
+          margin-bottom: 12px;
+        }
+
+        p {
+          @include notes-it;
+          height: 40px;
+          margin-bottom: 36px;
+        }
+
+        &:last-of-type p {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.members.open {
+  h1 {
+    grid-column: 1/3;
+    width: 300%;
+  }
+
+  .profile-wrapper {
+    grid-column: 3/13;
+    align-self: flex-end;
+
+    .profile {
+      height: fit-content;
+
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+
+      img {
+        grid-column: 1/5;
+        width: 90%;
       }
 
-      p {
-        @include notes-it;
-        height: 40px;
-        margin-bottom: 36px;
-      }
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
 
-      &:last-of-type p {
-        margin-bottom: 0;
+        h2 {
+          @include header2;
+          margin-bottom: 36px;
+        }
+
+        ul {
+          width: 100%;
+          display: block;
+          height: fit-content;
+
+          li {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            column-gap: 20px;
+            margin-bottom: 20px;
+
+            span.desc {
+              @include notes-text;
+              grid-column: 1/3;
+            }
+
+            span {
+              @include main-text;
+              grid-column: 3/6;
+            }
+          }
+        }
+      }
+    }
+    .profile-nav {
+      margin-top: 80px;
+      height: fit-content;
+
+      ul {
+        width: 100%;
+        list-style: none;
+        display: flex;
+        justify-content: flex-end;
+
+        li {
+          margin-right: 48px;
+          font-size: 24px;
+          line-height: 24px;
+          font-weight: 500;
+
+          &:last-of-type {
+            margin-right: 0;
+          }
+        }
       }
     }
   }

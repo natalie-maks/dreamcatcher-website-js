@@ -6,6 +6,7 @@ const membersProfile = {
     position: "Leader, Lead Vocalist, Lead Dancer, Visual",
     mbti: "ENFP",
     emoji: "🐰",
+    img: "/media/profile-pic/jiu.png",
   },
   SUA: {
     birthname: "Kim Bo Ra",
@@ -14,6 +15,7 @@ const membersProfile = {
     position: "Main Dancer, Sub Vocalist, Lead Rapper",
     mbti: "ESFJ",
     emoji: "🐥",
+    img: "/media/profile-pic/sua.png",
   },
   SIYEON: {
     birthname: "Lee Si Yeon",
@@ -22,6 +24,7 @@ const membersProfile = {
     position: "Main Vocalist",
     mbti: "ENTP",
     emoji: "🐺",
+    img: "/media/profile-pic/siyeon.png",
   },
   HANDONG: {
     birthname: "Han Dong",
@@ -30,6 +33,7 @@ const membersProfile = {
     position: "Sub Vocalist",
     mbti: "ISFP",
     emoji: "🐱",
+    img: "/media/profile-pic/handong.png",
   },
   YOOHYEON: {
     birthname: "Kim Yoo Hyeon",
@@ -38,6 +42,7 @@ const membersProfile = {
     position: "Lead Vocalist",
     mbti: "ENFJ",
     emoji: "🐶",
+    img: "/media/profile-pic/yoohyeon.png",
   },
   DAMI: {
     birthname: "Lee Yu Bin",
@@ -46,6 +51,7 @@ const membersProfile = {
     position: "Main Rapper, Lead Dancer, Sub Vocalist",
     mbti: "INFJ",
     emoji: "🐼",
+    img: "/media/profile-pic/dami.png",
   },
   GAHYEON: {
     birthname: "Lee Ga Hyeon",
@@ -54,6 +60,7 @@ const membersProfile = {
     position: "Lead Rapper, Sub Vocalist, Maknae",
     mbti: "ENFP",
     emoji: "🦊",
+    img: "/media/profile-pic/gahyeon.png",
   },
 };
 
