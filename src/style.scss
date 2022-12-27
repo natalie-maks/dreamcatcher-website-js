@@ -327,6 +327,65 @@ section {
   }
 }
 
+.music.open {
+  h1 {
+    grid-column: 1/3;
+    width: 200%;
+  }
+
+  .album-info {
+    grid-column: 3/6;
+    width: 100%;
+
+    img {
+      width: 100%;
+      margin: 60px 0 40px;
+    }
+
+    ul {
+      list-style: none;
+      li {
+        display: flex;
+        margin-bottom: 8px;
+
+        span {
+          @include main-text;
+
+          flex: 1;
+        }
+        span.desc {
+          @include notes-text;
+        }
+      }
+    }
+
+    button {
+      width: 100%;
+      @include notes-text;
+      text-decoration: underline;
+      border: none;
+      background: none;
+      color: #fff;
+      margin-top: 16px;
+      margin-bottom: 8px;
+    }
+
+    ol {
+      @include main-text;
+      list-style: none;
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      span {
+        display: inline-block;
+        width: 30px;
+      }
+    }
+  }
+}
+
 .events {
   @include disp-grid;
 
