@@ -70,12 +70,14 @@ const albums = {
     language: "Korean",
     date: "13.01.17",
     tracklist: ["Welcome to Dream", "Chace Me", "Emotion", "Chace Me (Inst.)"],
+    img: "/media/album-covers/nightmare.png",
   },
   "Fall asleep in the mirror": {
     status: "2nd single album",
     language: "Korean",
     date: "05.04.17",
     tracklist: ["My Toys", "GOOD NIGHT", "Lulluby", "GOOD NIGHT (Inst.)"],
+    img: "/media/album-covers/fall-asleep-in-the-mirror.png",
   },
   Prequel: {
     status: "1st mini-album",
@@ -89,12 +91,14 @@ const albums = {
       "괜찮아!",
       "Fly High (Inst.)",
     ],
+    img: "/media/album-covers/prequel.png",
   },
   "Full Moon": {
     status: "1st special single",
     language: "Korean",
     date: "12.01.18",
     tracklist: ["Full Moon", "Full Moon (Inst.)"],
+    img: "/media/album-covers/full-moon.png",
   },
   "Escape the ERA": {
     status: "2nd mini-album",
@@ -108,6 +112,7 @@ const albums = {
       "Scar",
       "YOU AND I (Inst.)",
     ],
+    img: "/media/album-covers/escape-the-era.png",
   },
   "Alone In The City": {
     status: "3rd mini-album",
@@ -121,6 +126,7 @@ const albums = {
       "July 7th",
       "What (Inst.)",
     ],
+    img: "/media/album-covers/alone-in-the-city.png",
   },
   "What -Japanese ver.-": {
     status: "1st japanese single album",
@@ -131,12 +137,14 @@ const albums = {
       "Chase Me – Japanese Ver.",
       "I Miss You",
     ],
+    img: "/media/album-covers/what-japanese-ver.png",
   },
   "Over the Sky": {
     status: "2nd special single",
     language: "Korean",
     date: "16.01.19",
     tracklist: ["Over the Sky", "Over the Sky (Inst.)"],
+    img: "/media/album-covers/over-the-sky.png",
   },
   "The End of Nightmare": {
     status: "4th mini-album",
@@ -150,6 +158,7 @@ const albums = {
       "Daydream",
       "PIRI (Inst.)",
     ],
+    img: "/media/album-covers/the-end-of-nightmare.png",
   },
   "PIRI ～ 笛を吹け ～ -Japanese ver.-": {
     status: "2nd japanese single album",
@@ -160,6 +169,7 @@ const albums = {
       "Good Night – Japanese Ver.",
       "Wonderland – Japanese Ver.",
     ],
+    img: "/media/album-covers/piri-japanese-ver.png",
   },
   "The Beginning of the End": {
     status: "1st japanese album",
@@ -179,6 +189,7 @@ const albums = {
       "You and I – Japanese Ver.",
       "Outro",
     ],
+    img: "/media/album-covers/the-beginning-of-the-end.png",
   },
   "Raid of Dream": {
     status: "special mini-album",
@@ -192,6 +203,7 @@ const albums = {
       "Polaris",
       "Deja Vu (Japanese Version) (Only JP Sales)",
     ],
+    img: "/media/album-covers/raid-of-dream.png",
   },
   "Dystopia: The Tree of Language": {
     status: "1st studio album",
@@ -213,6 +225,7 @@ const albums = {
       "Scream (Inst.)",
       "Paradise (Siyeon Solo)",
     ],
+    img: "/media/album-covers/distopia-the-tree-of-language.png",
   },
   "Endless Night": {
     status: "3rd japanese single",
@@ -223,12 +236,14 @@ const albums = {
       "Over The Sky – Japanese Ver.",
       "Silent Night – Japanese Ver.",
     ],
+    img: "/media/album-covers/endless-night.png",
   },
   "R.o.S.E BLUE": {
     status: "3rd special single",
     language: "Korean",
     date: "15.07.20",
     tracklist: ["R.o.S.E BLUE (Prod ESTi)", "R.o.S.E BLUE (Prod ESTi)"],
+    img: "/media/album-covers/rose-blue.png",
   },
   "Dystopia: Lose Myself": {
     status: "5th mini-album",
@@ -242,18 +257,14 @@ const albums = {
       "Dear",
       "BOCA (Inst.)",
     ],
+    img: "/media/album-covers/distopia-lose-myself.png",
   },
   "No More": {
     status: "japanese digital single",
     language: "Japanese",
     date: "20.11.20",
     tracklist: ["No More"],
-  },
-  "Eclipse (TV Size)": {
-    status: "japanese digital single",
-    language: "Korean",
-    date: "25.12.20",
-    tracklist: ["Eclipse (TV Size)"],
+    img: "/media/album-covers/no-more.png",
   },
   "Dystopia: Road to Utopia": {
     status: "6th mini-album",
@@ -268,6 +279,7 @@ const albums = {
       "New Days",
       "Odd Eye (Inst.)",
     ],
+    img: "/media/album-covers/distopia-road-to-utopia.png",
   },
   Eclipse: {
     status: "4th japanese single",
@@ -281,6 +293,7 @@ const albums = {
       "No More (Inst.)",
       "Don't Light My Fire (Inst.)",
     ],
+    img: "/media/album-covers/eclipse.png",
   },
   "Summer Holiday": {
     status: "special mini-album",
@@ -294,6 +307,7 @@ const albums = {
       "Alldaylong",
       "A Heart of Sunflower",
     ],
+    img: "/media/album-covers/summer-holiday.png",
   },
   "Apocalypse: Save Us": {
     status: "2nd studio album",
@@ -315,6 +329,7 @@ const albums = {
       "Beauty Full – (Dami solo)",
       "Playground – (Gahyeon solo)",
     ],
+    img: "/media/album-covers/apocalypse-save-us.png",
   },
   "Apocalypse: Follow  Us": {
     status: "7th mini-album",
@@ -328,6 +343,7 @@ const albums = {
       "Rainy Day (이 비가 그칠 때면)",
       "Outro : Mother Nature",
     ],
+    img: "/media/album-covers/apocalypse-follow-us.png",
   },
 };
 

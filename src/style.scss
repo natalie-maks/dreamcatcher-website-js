@@ -315,13 +315,14 @@ section {
       position: relative;
 
       &.albums {
-        max-height: 300px;
+        max-height: 330px;
         overflow-y: scroll;
         &::-webkit-scrollbar {
           width: 8px;
         }
 
         &::-webkit-scrollbar-track {
+          margin-block: 24px;
           background-color: #0e0303;
           border-radius: 10px;
         }
@@ -355,7 +356,7 @@ section {
 
     .shadow {
       width: calc(100% - 8px);
-      height: 302px;
+      height: 332px;
       background: linear-gradient(
         #0e0303 0%,
         rgba(14, 3, 3, 0) 20%,
@@ -363,7 +364,7 @@ section {
         #0e0303 100%
       );
       position: relative;
-      transform: translateY(-302px);
+      transform: translateY(-332px);
       pointer-events: none;
       transition: all 300ms ease-in-out;
 
@@ -380,6 +381,14 @@ section {
       @include main-text;
       margin-bottom: 24px;
 
+      &:first-of-type {
+        padding-top: 24px;
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+        padding-bottom: 24px;
+      }
       span {
         @include notes-it;
         display: block;
