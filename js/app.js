@@ -65,8 +65,8 @@ const membersProfile = {
 };
 
 const albums = {
-  "Apocalypse: Follow  Us": {
-    status: "7th mini-album",
+  "Apocalypse: Follow Us": {
+    albumType: "7th mini-album",
     language: "Korean",
     date: "11.10.22",
     tracklist: [
@@ -80,7 +80,7 @@ const albums = {
     img: "/media/album-covers/apocalypse-follow-us.png",
   },
   "Apocalypse: Save Us": {
-    status: "2nd studio album",
+    albumType: "2nd studio album",
     language: "Korean",
     date: "12.04.22",
     tracklist: [
@@ -102,7 +102,7 @@ const albums = {
     img: "/media/album-covers/apocalypse-save-us.png",
   },
   "Summer Holiday": {
-    status: "special mini-album",
+    albumType: "special mini-album",
     language: "Korean",
     date: "30.07.21",
     tracklist: [
@@ -116,7 +116,7 @@ const albums = {
     img: "/media/album-covers/summer-holiday.png",
   },
   Eclipse: {
-    status: "4th japanese single",
+    albumType: "4th japanese single",
     language: "Japanese",
     date: "24.03.21",
     tracklist: [
@@ -130,7 +130,7 @@ const albums = {
     img: "/media/album-covers/eclipse.png",
   },
   "Dystopia: Road to Utopia": {
-    status: "6th mini-album",
+    albumType: "6th mini-album",
     language: "Korean",
     date: "26.01.21",
     tracklist: [
@@ -142,17 +142,17 @@ const albums = {
       "New Days",
       "Odd Eye (Inst.)",
     ],
-    img: "/media/album-covers/distopia-road-to-utopia.png",
+    img: "/media/album-covers/dystopia-road-to-utopia.png",
   },
   "No More": {
-    status: "japanese digital single",
+    albumType: "japanese digital single",
     language: "Japanese",
     date: "20.11.20",
     tracklist: ["No More"],
     img: "/media/album-covers/no-more.png",
   },
   "Dystopia: Lose Myself": {
-    status: "5th mini-album",
+    albumType: "5th mini-album",
     language: "Korean",
     date: "17.08.20",
     tracklist: [
@@ -163,17 +163,17 @@ const albums = {
       "Dear",
       "BOCA (Inst.)",
     ],
-    img: "/media/album-covers/distopia-lose-myself.png",
+    img: "/media/album-covers/dystopia-lose-myself.png",
   },
   "R.o.S.E BLUE": {
-    status: "3rd special single",
+    albumType: "3rd special single",
     language: "Korean",
     date: "15.07.20",
     tracklist: ["R.o.S.E BLUE (Prod ESTi)", "R.o.S.E BLUE (Prod ESTi)"],
     img: "/media/album-covers/rose-blue.png",
   },
   "Endless Night": {
-    status: "3rd japanese single",
+    albumType: "3rd japanese single",
     language: "Japanese",
     date: "11.03.20",
     tracklist: [
@@ -184,7 +184,7 @@ const albums = {
     img: "/media/album-covers/endless-night.png",
   },
   "Dystopia: The Tree of Language": {
-    status: "1st studio album",
+    albumType: "1st studio album",
     language: "Korean",
     date: "18.02.20",
     tracklist: [
@@ -203,10 +203,10 @@ const albums = {
       "Scream (Inst.)",
       "Paradise (Siyeon Solo)",
     ],
-    img: "/media/album-covers/distopia-the-tree-of-language.png",
+    img: "/media/album-covers/dystopia-the-tree-of-language.png",
   },
   "Raid of Dream": {
-    status: "special mini-album",
+    albumType: "special mini-album",
     language: "Korean",
     date: "18.09.19",
     tracklist: [
@@ -220,7 +220,7 @@ const albums = {
     img: "/media/album-covers/raid-of-dream.png",
   },
   "The Beginning of the End": {
-    status: "1st japanese album",
+    albumType: "1st japanese album",
     language: "Japanese",
     date: "11.09.19",
     tracklist: [
@@ -240,7 +240,7 @@ const albums = {
     img: "/media/album-covers/the-beginning-of-the-end.png",
   },
   "PIRI ～ 笛を吹け ～ -Japanese ver.-": {
-    status: "2nd japanese single album",
+    albumType: "2nd japanese single album",
     language: "Japanese",
     date: "13.03.19",
     tracklist: [
@@ -251,7 +251,7 @@ const albums = {
     img: "/media/album-covers/piri-japanese-ver.png",
   },
   "The End of Nightmare": {
-    status: "4th mini-album",
+    albumType: "4th mini-album",
     language: "Korean",
     date: "13.02.19",
     tracklist: [
@@ -265,14 +265,14 @@ const albums = {
     img: "/media/album-covers/the-end-of-nightmare.png",
   },
   "Over the Sky": {
-    status: "2nd special single",
+    albumType: "2nd special single",
     language: "Korean",
     date: "16.01.19",
     tracklist: ["Over the Sky", "Over the Sky (Inst.)"],
     img: "/media/album-covers/over-the-sky.png",
   },
   "What -Japanese ver.-": {
-    status: "1st japanese single album",
+    albumType: "1st japanese single album",
     language: "Japanese",
     date: "21.11.18",
     tracklist: [
@@ -283,7 +283,7 @@ const albums = {
     img: "/media/album-covers/what-japanese-ver.png",
   },
   "Alone In The City": {
-    status: "3rd mini-album",
+    albumType: "3rd mini-album",
     language: "Korean",
     date: "20.09.18",
     tracklist: [
@@ -297,7 +297,7 @@ const albums = {
     img: "/media/album-covers/alone-in-the-city.png",
   },
   "Escape the ERA": {
-    status: "2nd mini-album",
+    albumType: "2nd mini-album",
     language: "Korean",
     date: "10.05.18",
     tracklist: [
@@ -311,14 +311,14 @@ const albums = {
     img: "/media/album-covers/escape-the-era.png",
   },
   "Full Moon": {
-    status: "1st special single",
+    albumType: "1st special single",
     language: "Korean",
     date: "12.01.18",
     tracklist: ["Full Moon", "Full Moon (Inst.)"],
     img: "/media/album-covers/full-moon.png",
   },
   Prequel: {
-    status: "1st mini-album",
+    albumType: "1st mini-album",
     language: "Korean",
     date: "27.07.17",
     tracklist: [
@@ -332,14 +332,14 @@ const albums = {
     img: "/media/album-covers/prequel.png",
   },
   "Fall asleep in the mirror": {
-    status: "2nd single album",
+    albumType: "2nd single album",
     language: "Korean",
     date: "05.04.17",
     tracklist: ["My Toys", "GOOD NIGHT", "Lulluby", "GOOD NIGHT (Inst.)"],
     img: "/media/album-covers/fall-asleep-in-the-mirror.png",
   },
   Nightmare: {
-    status: "1st single album",
+    albumType: "1st single album",
     language: "Korean",
     date: "13.01.17",
     tracklist: ["Welcome to Dream", "Chace Me", "Emotion", "Chace Me (Inst.)"],
@@ -347,17 +347,52 @@ const albums = {
   },
 };
 
+const albumInfo = document.querySelector("section.music .album-info");
+
+function showAlbumInfo(e) {
+  let name = e.target.querySelector(".album-title").innerText;
+
+  let tracks = ``;
+
+  albums[name].tracklist.forEach((track, i) => {
+    tracks += `<li><span>${i + 1}.</span> ${track}</li>`;
+  });
+  albumInfo.classList.add("hidden");
+
+  setTimeout(() => {
+    albumInfo.innerHTML = `
+  <img src="${albums[name].img}" alt="" />
+          <ul>
+            <li>
+              <span class="desc">Release date:</span> <span> ${albums[name].date} </span>
+            </li>
+            <li><span class="desc">Language:</span> <span> ${albums[name].language} </span></li>
+          </ul>
+          <button>Show tracklist</button>
+          <ol>${tracks}</ol>
+  `;
+    albumInfo.classList.remove("hidden");
+  }, 150);
+}
+
 let albumsArr = ``;
 
 for (const property in albums) {
-  albumsArr += `<li>${property} <span> ${albums[property].status} </span></li>`;
+  albumsArr += `<li data-albums>
+  <span class="album-title">${property}</span>
+  <span class="album-type">${albums[property].albumType}</span>
+  </li>`;
 }
-
-console.log(albumsArr);
 
 const albumsList = document.getElementById("albums");
 
 albumsList.innerHTML = albumsArr;
+
+const dataAlbums = albumsList.querySelectorAll(`[data-albums]`);
+
+dataAlbums.forEach((li) => {
+  li.addEventListener("click", showAlbumInfo);
+});
 
 let list = document.querySelector("ul.albums");
 let listStart = list.firstElementChild;
