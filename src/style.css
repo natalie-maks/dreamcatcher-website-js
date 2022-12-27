@@ -415,6 +415,67 @@ section {
 
 .music .wrapper ul {
   list-style: none;
+  position: relative;
+}
+
+.music .wrapper ul.albums {
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+.music .wrapper ul.albums::-webkit-scrollbar {
+  width: 8px;
+}
+
+.music .wrapper ul.albums::-webkit-scrollbar-track {
+  background-color: #0e0303;
+  border-radius: 10px;
+}
+
+.music .wrapper ul.albums::-webkit-scrollbar-thumb {
+  background-color: #0e0303;
+  border-radius: 10px;
+}
+
+.music .wrapper ul.albums:hover::-webkit-scrollbar-track {
+  background-color: #0e0303;
+  border-radius: 10px;
+}
+
+.music .wrapper ul.albums:hover::-webkit-scrollbar-track:hover {
+  background-color: #1b0e0e;
+}
+
+.music .wrapper ul.albums:hover::-webkit-scrollbar-thumb {
+  background-color: #1b0e0e;
+  border-radius: 10px;
+}
+
+.music .wrapper ul.albums:hover::-webkit-scrollbar-thumb:hover {
+  background-color: #fff;
+}
+
+.music .wrapper .shadow {
+  width: calc(100% - 8px);
+  height: 302px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#0e0303), color-stop(20%, rgba(14, 3, 3, 0)), color-stop(80%, rgba(14, 3, 3, 0)), to(#0e0303));
+  background: linear-gradient(#0e0303 0%, rgba(14, 3, 3, 0) 20%, rgba(14, 3, 3, 0) 80%, #0e0303 100%);
+  position: relative;
+  -webkit-transform: translateY(-302px);
+          transform: translateY(-302px);
+  pointer-events: none;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+
+.music .wrapper .shadow.top {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(80%, rgba(14, 3, 3, 0)), to(#0e0303));
+  background: linear-gradient(rgba(14, 3, 3, 0) 80%, #0e0303 100%);
+}
+
+.music .wrapper .shadow.end {
+  background: -webkit-gradient(linear, left top, left bottom, from(#0e0303), color-stop(20%, rgba(14, 3, 3, 0)));
+  background: linear-gradient(#0e0303 0%, rgba(14, 3, 3, 0) 20%);
 }
 
 .music .wrapper li {

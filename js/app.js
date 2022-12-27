@@ -330,3 +330,49 @@ const albums = {
     ],
   },
 };
+
+let list = document.querySelector("ul.albums");
+let listStart = list.firstElementChild;
+let listEnd = list.lastElementChild;
+
+let shadow = document.querySelector(".shadow");
+
+let startObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        console.log("top");
+
+        shadow.classList.add("top");
+        shadow.classList.remove("end");
+      } else {
+        shadow.classList.remove("end");
+        shadow.classList.remove("top");
+      }
+    });
+  },
+  {
+    threshold: 1,
+  }
+);
+
+let endObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        console.log("end");
+        shadow.classList.add("end");
+        shadow.classList.remove("top");
+      } else {
+        shadow.classList.remove("end");
+        shadow.classList.remove("top");
+      }
+    });
+  },
+  {
+    threshold: 1,
+  }
+);
+
+startObserver.observe(listStart);
+endObserver.observe(listEnd);
