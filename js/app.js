@@ -368,9 +368,19 @@ function showAlbumInfo(e) {
             </li>
             <li><span class="desc">Language:</span> <span> ${albums[name].language} </span></li>
           </ul>
-          <button>Show tracklist</button>
-          <ol>${tracks}</ol>
+          <button id="tracklist-btn">Show tracklist</button>
+          <ol class="hidden">${tracks}</ol>
   `;
+    let tracklistBtn = document.getElementById("tracklist-btn");
+    tracklistBtn.addEventListener("click", () => {
+      const list = albumInfo.querySelector("ol");
+      list.classList.toggle("hidden");
+      if (!list.classList.contains("hidden")) {
+        tracklistBtn.innerText = `Hide tracklist`;
+      } else {
+        tracklistBtn.innerText = `Show tracklist`;
+      }
+    });
     albumInfo.classList.remove("hidden");
   }, 150);
 }
