@@ -449,8 +449,11 @@ section {
   border: none;
   background: none;
   color: #fff;
-  margin-top: 16px;
-  margin-bottom: 8px;
+  margin-block: 16px;
+}
+
+.music .album-info .tracklist-wrapper {
+  position: relative;
 }
 
 .music .album-info ol {
@@ -459,6 +462,10 @@ section {
   font-weight: 300;
   line-height: 24px;
   list-style: none;
+  max-height: 200px;
+  overflow-y: scroll;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
 }
 
 .music .album-info ol li {
@@ -468,6 +475,28 @@ section {
 .music .album-info ol span {
   display: inline-block;
   width: 30px;
+}
+
+.music .album-info .tracklist-shadow {
+  width: calc(100% - 8px);
+  height: 200px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(80%, rgba(14, 3, 3, 0)), to(#0e0303));
+  background: linear-gradient(rgba(14, 3, 3, 0) 80%, #0e0303 100%);
+  position: absolute;
+  top: 0;
+  pointer-events: none;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+}
+
+.music .album-info .tracklist-shadow.top {
+  background: -webkit-gradient(linear, left top, left bottom, from(#0e0303), color-stop(20%, rgba(14, 3, 3, 0)), color-stop(80%, rgba(14, 3, 3, 0)), to(#0e0303));
+  background: linear-gradient(#0e0303 0%, rgba(14, 3, 3, 0) 20%, rgba(14, 3, 3, 0) 80%, #0e0303 100%);
+}
+
+.music .album-info .tracklist-shadow.end {
+  background: -webkit-gradient(linear, left top, left bottom, from(#0e0303), color-stop(20%, rgba(14, 3, 3, 0)));
+  background: linear-gradient(#0e0303 0%, rgba(14, 3, 3, 0) 20%);
 }
 
 .music .wrapper {
@@ -486,7 +515,6 @@ section {
 
 .music .wrapper ul {
   list-style: none;
-  position: relative;
 }
 
 .music .wrapper ul.albums {
@@ -494,58 +522,32 @@ section {
   overflow-y: scroll;
 }
 
-.music .wrapper ul.albums::-webkit-scrollbar {
-  width: 8px;
-}
-
 .music .wrapper ul.albums::-webkit-scrollbar-track {
   margin-block: 24px;
-  background-color: #0e0303;
-  border-radius: 10px;
 }
 
-.music .wrapper ul.albums::-webkit-scrollbar-thumb {
-  background-color: #0e0303;
-  border-radius: 10px;
+.music .wrapper .albums-list-wrapper {
+  position: relative;
 }
 
-.music .wrapper ul.albums:hover::-webkit-scrollbar-track {
-  background-color: #0e0303;
-  border-radius: 10px;
-}
-
-.music .wrapper ul.albums:hover::-webkit-scrollbar-track:hover {
-  background-color: #1b0e0e;
-}
-
-.music .wrapper ul.albums:hover::-webkit-scrollbar-thumb {
-  background-color: #1b0e0e;
-  border-radius: 10px;
-}
-
-.music .wrapper ul.albums:hover::-webkit-scrollbar-thumb:hover {
-  background-color: #fff;
-}
-
-.music .wrapper .shadow {
+.music .wrapper .album-shadow {
   width: calc(100% - 8px);
   height: 332px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#0e0303), color-stop(20%, rgba(14, 3, 3, 0)), color-stop(80%, rgba(14, 3, 3, 0)), to(#0e0303));
-  background: linear-gradient(#0e0303 0%, rgba(14, 3, 3, 0) 20%, rgba(14, 3, 3, 0) 80%, #0e0303 100%);
-  position: relative;
-  -webkit-transform: translateY(-332px);
-          transform: translateY(-332px);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(80%, rgba(14, 3, 3, 0)), to(#0e0303));
+  background: linear-gradient(rgba(14, 3, 3, 0) 80%, #0e0303 100%);
+  position: absolute;
+  top: 0;
   pointer-events: none;
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
 
-.music .wrapper .shadow.top {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(80%, rgba(14, 3, 3, 0)), to(#0e0303));
-  background: linear-gradient(rgba(14, 3, 3, 0) 80%, #0e0303 100%);
+.music .wrapper .album-shadow.top {
+  background: -webkit-gradient(linear, left top, left bottom, from(#0e0303), color-stop(20%, rgba(14, 3, 3, 0)), color-stop(80%, rgba(14, 3, 3, 0)), to(#0e0303));
+  background: linear-gradient(#0e0303 0%, rgba(14, 3, 3, 0) 20%, rgba(14, 3, 3, 0) 80%, #0e0303 100%);
 }
 
-.music .wrapper .shadow.end {
+.music .wrapper .album-shadow.end {
   background: -webkit-gradient(linear, left top, left bottom, from(#0e0303), color-stop(20%, rgba(14, 3, 3, 0)));
   background: linear-gradient(#0e0303 0%, rgba(14, 3, 3, 0) 20%);
 }
@@ -729,5 +731,37 @@ section {
 
 .hidden {
   opacity: 0;
+}
+
+.scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scroll::-webkit-scrollbar-track {
+  background-color: #0e0303;
+  border-radius: 10px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: #0e0303;
+  border-radius: 10px;
+}
+
+.scroll:hover::-webkit-scrollbar-track {
+  background-color: #0e0303;
+  border-radius: 10px;
+}
+
+.scroll:hover::-webkit-scrollbar-track:hover {
+  background-color: #1b0e0e;
+}
+
+.scroll:hover::-webkit-scrollbar-thumb {
+  background-color: #1b0e0e;
+  border-radius: 10px;
+}
+
+.scroll:hover::-webkit-scrollbar-thumb:hover {
+  background-color: #fff;
 }
 /*# sourceMappingURL=style.css.map */

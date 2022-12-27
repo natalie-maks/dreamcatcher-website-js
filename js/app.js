@@ -348,6 +348,22 @@ const albums = {
 };
 
 const albumInfo = document.querySelector("section.music .album-info");
+const albumInfoImg = albumInfo.querySelector("img");
+const albumInfoDate = albumInfo.querySelector("#release-date");
+const albumInfoLang = albumInfo.querySelector("#language");
+const albumInfoTracklist = albumInfo.querySelector("#tracklist");
+const albumInfoTracklistBtn = albumInfo.querySelector("#tracklist-btn");
+const tracklistShadow = albumInfo.querySelector(".tracklist-shadow");
+
+albumInfoTracklistBtn.addEventListener("click", () => {
+  albumInfoTracklist.classList.toggle("hidden");
+  if (!albumInfoTracklist.classList.contains("hidden")) {
+    albumInfoTracklistBtn.innerText = `Hide tracklist`;
+    observeTracklist();
+  } else {
+    albumInfoTracklistBtn.innerText = `Show tracklist`;
+  }
+});
 
 function showAlbumInfo(e) {
   let name = e.target.querySelector(".album-title").innerText;
@@ -358,31 +374,64 @@ function showAlbumInfo(e) {
     tracks += `<li><span>${i + 1}.</span> ${track}</li>`;
   });
   albumInfo.classList.add("hidden");
+  albumInfoTracklist.classList.add("hidden");
+  tracklistShadow.classList.remove("hidden");
 
   setTimeout(() => {
-    albumInfo.innerHTML = `
-  <img src="${albums[name].img}" alt="" />
-          <ul>
-            <li>
-              <span class="desc">Release date:</span> <span> ${albums[name].date} </span>
-            </li>
-            <li><span class="desc">Language:</span> <span> ${albums[name].language} </span></li>
-          </ul>
-          <button id="tracklist-btn">Show tracklist</button>
-          <ol class="hidden">${tracks}</ol>
-  `;
-    let tracklistBtn = document.getElementById("tracklist-btn");
-    tracklistBtn.addEventListener("click", () => {
-      const list = albumInfo.querySelector("ol");
-      list.classList.toggle("hidden");
-      if (!list.classList.contains("hidden")) {
-        tracklistBtn.innerText = `Hide tracklist`;
-      } else {
-        tracklistBtn.innerText = `Show tracklist`;
-      }
-    });
+    albumInfoTracklistBtn.innerText = `Show tracklist`;
+    albumInfoDate.innerText = albums[name].date;
+    albumInfoLang.innerText = albums[name].language;
+    albumInfoTracklist.innerHTML = tracks;
+    albumInfoImg.setAttribute("src", albums[name].img);
+    if (albumInfoTracklist.clientHeight < 200) {
+      tracklistShadow.classList.add("hidden");
+    }
+
     albumInfo.classList.remove("hidden");
-  }, 150);
+  }, 200);
+}
+
+function observeTracklist() {
+  let tracklistStart = albumInfoTracklist.firstElementChild;
+  let tracklistEnd = albumInfoTracklist.lastElementChild;
+
+  let startTrackObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          tracklistShadow.classList.remove("end");
+          tracklistShadow.classList.remove("top");
+        } else {
+          tracklistShadow.classList.remove("end");
+          tracklistShadow.classList.add("top");
+        }
+      });
+    },
+    {
+      threshold: 0.9,
+    }
+  );
+
+  let endTrackObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          console.log("now");
+          tracklistShadow.classList.add("end");
+          tracklistShadow.classList.remove("top");
+        } else {
+          tracklistShadow.classList.remove("end");
+          tracklistShadow.classList.add("top");
+        }
+      });
+    },
+    {
+      threshold: 0.95,
+    }
+  );
+
+  startTrackObserver.observe(tracklistStart);
+  endTrackObserver.observe(tracklistEnd);
 }
 
 let albumsArr = ``;
@@ -408,22 +457,24 @@ let list = document.querySelector("ul.albums");
 let listStart = list.firstElementChild;
 let listEnd = list.lastElementChild;
 
-let shadow = document.querySelector(".shadow");
+let albumShadow = document.querySelector(".album-shadow");
 
 let startObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        shadow.classList.add("top");
-        shadow.classList.remove("end");
+        console.log(entry);
+        albumShadow.classList.remove("end");
+        albumShadow.classList.remove("top");
       } else {
-        shadow.classList.remove("end");
-        shadow.classList.remove("top");
+        console.log(entry);
+        albumShadow.classList.add("top");
+        albumShadow.classList.remove("end");
       }
     });
   },
   {
-    threshold: 1,
+    threshold: 0.9,
   }
 );
 
@@ -431,11 +482,11 @@ let endObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        shadow.classList.add("end");
-        shadow.classList.remove("top");
+        albumShadow.classList.add("end");
+        albumShadow.classList.remove("top");
       } else {
-        shadow.classList.remove("end");
-        shadow.classList.remove("top");
+        albumShadow.classList.remove("end");
+        albumShadow.classList.add("top");
       }
     });
   },

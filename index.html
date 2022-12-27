@@ -151,11 +151,29 @@
       </section>
       <section class="music">
         <h1>Music <span>.</span></h1>
-        <div class="album-info hidden"></div>
+        <div class="album-info hidden">
+          <img src="" alt="" />
+          <ul>
+            <li>
+              <span class="desc">Release date:</span>
+              <span id="release-date"> </span>
+            </li>
+            <li>
+              <span class="desc">Language:</span> <span id="language"> </span>
+            </li>
+          </ul>
+          <button id="tracklist-btn">Show tracklist</button>
+          <div class="tracklist-wrapper">
+            <ol class="scroll hidden" id="tracklist"></ol>
+            <div class="tracklist-shadow"></div>
+          </div>
+        </div>
         <div class="wrapper">
           <h2>Discography</h2>
-          <ul class="albums top" id="albums"></ul>
-          <div class="shadow"></div>
+          <div class="albums-list-wrapper">
+            <ul class="albums scroll" id="albums"></ul>
+            <div class="album-shadow"></div>
+          </div>
           <h2>Listen on</h2>
           <ul>
             <li>Spotify</li>

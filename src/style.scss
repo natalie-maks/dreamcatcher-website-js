@@ -335,14 +335,20 @@ section {
       border: none;
       background: none;
       color: #fff;
-      margin-top: 16px;
-      margin-bottom: 8px;
+      margin-block: 16px;
+    }
+
+    .tracklist-wrapper {
+      position: relative;
     }
 
     ol {
       @include main-text;
       line-height: 24px;
       list-style: none;
+      max-height: 200px;
+      overflow-y: scroll;
+      transition: all 150ms ease-in-out;
 
       li {
         margin-bottom: 8px;
@@ -351,6 +357,30 @@ section {
       span {
         display: inline-block;
         width: 30px;
+      }
+    }
+
+    .tracklist-shadow {
+      width: calc(100% - 8px);
+      height: 200px;
+      background: linear-gradient(rgba(14, 3, 3, 0) 80%, #0e0303 100%);
+
+      position: absolute;
+      top: 0;
+      pointer-events: none;
+      transition: all 150ms ease-in-out;
+
+      &.top {
+        background: linear-gradient(
+          #0e0303 0%,
+          rgba(14, 3, 3, 0) 20%,
+          rgba(14, 3, 3, 0) 80%,
+          #0e0303 100%
+        );
+      }
+
+      &.end {
+        background: linear-gradient(#0e0303 0%, rgba(14, 3, 3, 0) 20%);
       }
     }
   }
@@ -367,64 +397,37 @@ section {
 
     ul {
       list-style: none;
-      position: relative;
 
       &.albums {
         max-height: 330px;
         overflow-y: scroll;
-        &::-webkit-scrollbar {
-          width: 8px;
-        }
 
         &::-webkit-scrollbar-track {
           margin-block: 24px;
-          background-color: #0e0303;
-          border-radius: 10px;
-        }
-
-        &::-webkit-scrollbar-thumb {
-          background-color: #0e0303;
-          border-radius: 10px;
-        }
-
-        &:hover {
-          &::-webkit-scrollbar-track {
-            background-color: #0e0303;
-            border-radius: 10px;
-
-            &:hover {
-              background-color: #1b0e0e;
-            }
-          }
-
-          &::-webkit-scrollbar-thumb {
-            background-color: #1b0e0e;
-            border-radius: 10px;
-
-            &:hover {
-              background-color: #fff;
-            }
-          }
         }
       }
     }
 
-    .shadow {
+    .albums-list-wrapper {
+      position: relative;
+    }
+
+    .album-shadow {
       width: calc(100% - 8px);
       height: 332px;
-      background: linear-gradient(
-        #0e0303 0%,
-        rgba(14, 3, 3, 0) 20%,
-        rgba(14, 3, 3, 0) 80%,
-        #0e0303 100%
-      );
-      position: relative;
-      transform: translateY(-332px);
+      background: linear-gradient(rgba(14, 3, 3, 0) 80%, #0e0303 100%);
+      position: absolute;
+      top: 0;
       pointer-events: none;
       transition: all 300ms ease-in-out;
 
       &.top {
-        background: linear-gradient(rgba(14, 3, 3, 0) 80%, #0e0303 100%);
+        background: linear-gradient(
+          #0e0303 0%,
+          rgba(14, 3, 3, 0) 20%,
+          rgba(14, 3, 3, 0) 80%,
+          #0e0303 100%
+        );
       }
 
       &.end {
@@ -538,4 +541,40 @@ section {
 
 .hidden {
   opacity: 0;
+}
+
+.scroll {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #0e0303;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #0e0303;
+    border-radius: 10px;
+  }
+
+  &:hover {
+    &::-webkit-scrollbar-track {
+      background-color: #0e0303;
+      border-radius: 10px;
+
+      &:hover {
+        background-color: #1b0e0e;
+      }
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #1b0e0e;
+      border-radius: 10px;
+
+      &:hover {
+        background-color: #fff;
+      }
+    }
+  }
 }
