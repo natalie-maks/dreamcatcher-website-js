@@ -338,6 +338,13 @@ section {
   line-height: 32px;
   font-weight: 400;
   margin-bottom: 12px;
+  -webkit-transition: all 150ms ease-in;
+  transition: all 150ms ease-in;
+}
+
+.members .wrapper ul li h2:hover {
+  color: #c91919;
+  cursor: pointer;
 }
 
 .members .wrapper ul li p {
@@ -462,6 +469,13 @@ section {
   font-size: 24px;
   line-height: 24px;
   font-weight: 500;
+  -webkit-transition: all 150ms ease-in;
+  transition: all 150ms ease-in;
+}
+
+.members .profile-wrapper .profile-nav ul li:hover {
+  color: #c91919;
+  cursor: pointer;
 }
 
 .members .profile-wrapper .profile-nav ul li:last-of-type {
@@ -545,6 +559,13 @@ section {
   background: none;
   color: #fff;
   margin-block: 16px;
+  -webkit-transition: all 150ms ease-in;
+  transition: all 150ms ease-in;
+}
+
+.music .album-info button:hover {
+  color: #c91919;
+  cursor: pointer;
 }
 
 .music .album-info .tracklist-wrapper {
@@ -615,6 +636,16 @@ section {
 .music .wrapper ul.albums {
   max-height: 330px;
   overflow-y: scroll;
+}
+
+.music .wrapper ul.albums li {
+  -webkit-transition: all 150ms ease-in;
+  transition: all 150ms ease-in;
+}
+
+.music .wrapper ul.albums li:hover {
+  color: #c91919;
+  cursor: pointer;
 }
 
 .music .wrapper ul.albums::-webkit-scrollbar-track {

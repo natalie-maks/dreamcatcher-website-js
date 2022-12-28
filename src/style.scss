@@ -257,6 +257,12 @@ section {
         h2 {
           @include header2;
           margin-bottom: 12px;
+          transition: all 150ms ease-in;
+
+          &:hover {
+            color: $red-color;
+            cursor: pointer;
+          }
         }
 
         p {
@@ -339,6 +345,12 @@ section {
           line-height: 24px;
           font-weight: 500;
 
+          transition: all 150ms ease-in;
+          &:hover {
+            color: $red-color;
+            cursor: pointer;
+          }
+
           &:last-of-type {
             margin-right: 0;
           }
@@ -392,6 +404,12 @@ section {
       background: none;
       color: #fff;
       margin-block: 16px;
+      transition: all 150ms ease-in;
+
+      &:hover {
+        color: $red-color;
+        cursor: pointer;
+      }
     }
 
     .tracklist-wrapper {
@@ -457,6 +475,15 @@ section {
       &.albums {
         max-height: 330px;
         overflow-y: scroll;
+
+        li {
+          transition: all 150ms ease-in;
+
+          &:hover {
+            color: $red-color;
+            cursor: pointer;
+          }
+        }
 
         &::-webkit-scrollbar-track {
           margin-block: 24px;
