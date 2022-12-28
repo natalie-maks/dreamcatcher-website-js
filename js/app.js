@@ -416,7 +416,6 @@ function observeTracklist() {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          console.log("now");
           tracklistShadow.classList.add("end");
           tracklistShadow.classList.remove("top");
         } else {
@@ -463,11 +462,9 @@ let startObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        console.log(entry);
         albumShadow.classList.remove("end");
         albumShadow.classList.remove("top");
       } else {
-        console.log(entry);
         albumShadow.classList.add("top");
         albumShadow.classList.remove("end");
       }
@@ -500,12 +497,37 @@ endObserver.observe(listEnd);
 
 const membersWrapper = document.querySelector(".members .wrapper");
 const profileWrapper = document.querySelector(".members .profile-wrapper");
-const profileWrapperNav = profileWrapper.querySelectorAll("li");
+const profileWrapperName = profileWrapper.querySelector("#profile-name");
+const profileWrapperImg = profileWrapper.querySelector("#profile-img");
+const profileWrapperBirthName = profileWrapper.querySelector(
+  "#profile-birth-name"
+);
+const profileWrapperBirthday =
+  profileWrapper.querySelector("#profile-birthday");
+const profileWrapperZodiac = profileWrapper.querySelector("#profile-zodiac");
+const profileWrapperPosition =
+  profileWrapper.querySelector("#profile-position");
+const profileWrapperMbti = profileWrapper.querySelector("#profile-mbti");
+const profileWrapperEmoji = profileWrapper.querySelector("#profile-emoji");
+const profileWrapperNav = profileWrapper.querySelectorAll(".profile-nav li");
 
 const membersWrapperNames = membersWrapper.querySelectorAll("h2");
 
 membersWrapperNames.forEach((name) => {
   name.addEventListener("click", (e) => {
+    console.log(e.target.innerText);
+    let membName = e.target.innerText;
+
+    profileWrapperName.innerText = membName;
+    profileWrapperImg.setAttribute("src", membersProfile[membName].img);
+    profileWrapperBirthName.innerText = membersProfile[membName].birthname;
+    profileWrapperBirthday.innerText = membersProfile[membName].birthday;
+    profileWrapperZodiac.innerText = membersProfile[membName].zodiac;
+    profileWrapperPosition.innerText = membersProfile[membName].position;
+    profileWrapperMbti.innerText = membersProfile[membName].mbti;
+    profileWrapperEmoji.innerText = membersProfile[membName].emoji;
+    console.log(membersProfile[membName]);
+
     membersWrapper.classList.add("hidden");
 
     setTimeout(() => {
@@ -518,5 +540,3 @@ membersWrapperNames.forEach((name) => {
     }, 150);
   });
 });
-
-console.log(membersWrapper, membersWrapperNames);
