@@ -585,3 +585,37 @@ let headerObserver = new IntersectionObserver(
 );
 
 headerObserver.observe(header);
+
+const members = document.querySelector("#members");
+
+let membersObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        profileWrapper.classList.add("hidden", "d-hidden");
+        membersWrapper.classList.remove("hidden", "d-hidden");
+      }
+    });
+  },
+  { threshold: 0.1 }
+);
+
+membersObserver.observe(members);
+const music = document.querySelector("#music");
+
+let musicObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        console.log("yes");
+      } else {
+        console.log("no");
+        clearActive(dataAlbums);
+        albumInfo.classList.add("hidden");
+      }
+    });
+  },
+  { threshold: 0.1 }
+);
+
+musicObserver.observe(music);
