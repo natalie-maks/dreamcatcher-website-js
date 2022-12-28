@@ -575,15 +575,13 @@ let headerObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        console.log(`yes`);
         headerNav.classList.add("header");
       } else {
-        console.log(`no`);
         headerNav.classList.remove("header");
       }
     });
   },
-  { threshold: 0.05 }
+  { threshold: 0.2 }
 );
 
 headerObserver.observe(header);
