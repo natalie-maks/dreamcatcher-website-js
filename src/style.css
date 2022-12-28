@@ -578,6 +578,15 @@ section {
   margin-top: 8px;
 }
 
+.music .wrapper li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.music .wrapper li a:hover {
+  color: #c91919;
+}
+
 .events {
   display: -ms-grid;
   display: grid;
