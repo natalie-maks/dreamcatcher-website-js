@@ -450,15 +450,6 @@ section {
         display: block;
         margin-top: 8px;
       }
-
-      a {
-        text-decoration: none;
-        color: #fff;
-
-        &:hover {
-          color: $red-color;
-        }
-      }
     }
   }
 }
@@ -533,13 +524,18 @@ section {
 
       li {
         margin-bottom: 72px;
-
-        a {
-          color: #fff;
-          text-decoration: none;
-        }
       }
     }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  transition: all 150ms ease-in;
+
+  &:hover {
+    color: $red-color;
   }
 }
 
