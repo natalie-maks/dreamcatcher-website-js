@@ -567,3 +567,23 @@ function clearActive(clearArr) {
     name.classList.remove("active");
   });
 }
+
+const header = document.querySelector("header");
+const headerNav = header.querySelector("nav");
+
+let headerObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        console.log(`yes`);
+        headerNav.classList.add("header");
+      } else {
+        console.log(`no`);
+        headerNav.classList.remove("header");
+      }
+    });
+  },
+  { threshold: 0.05 }
+);
+
+headerObserver.observe(header);
