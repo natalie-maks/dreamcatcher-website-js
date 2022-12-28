@@ -734,6 +734,10 @@ section {
   display: none !important;
 }
 
+.active {
+  color: #c91919;
+}
+
 .scroll::-webkit-scrollbar {
   width: 8px;
 }

@@ -542,6 +542,10 @@ section {
   display: none !important;
 }
 
+.active {
+  color: $red-color;
+}
+
 .scroll {
   &::-webkit-scrollbar {
     width: 8px;

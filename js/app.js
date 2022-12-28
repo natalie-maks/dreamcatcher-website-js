@@ -515,18 +515,7 @@ const membersWrapperNames = membersWrapper.querySelectorAll("h2");
 
 membersWrapperNames.forEach((name) => {
   name.addEventListener("click", (e) => {
-    console.log(e.target.innerText);
-    let membName = e.target.innerText;
-
-    profileWrapperName.innerText = membName;
-    profileWrapperImg.setAttribute("src", membersProfile[membName].img);
-    profileWrapperBirthName.innerText = membersProfile[membName].birthname;
-    profileWrapperBirthday.innerText = membersProfile[membName].birthday;
-    profileWrapperZodiac.innerText = membersProfile[membName].zodiac;
-    profileWrapperPosition.innerText = membersProfile[membName].position;
-    profileWrapperMbti.innerText = membersProfile[membName].mbti;
-    profileWrapperEmoji.innerText = membersProfile[membName].emoji;
-    console.log(membersProfile[membName]);
+    fillProfile(e.target.innerText);
 
     membersWrapper.classList.add("hidden");
 
@@ -540,3 +529,39 @@ membersWrapperNames.forEach((name) => {
     }, 150);
   });
 });
+
+function fillProfile(membName) {
+  profileWrapperName.innerText = membName;
+  profileWrapperImg.setAttribute("src", membersProfile[membName].img);
+  profileWrapperBirthName.innerText = membersProfile[membName].birthname;
+  profileWrapperBirthday.innerText = membersProfile[membName].birthday;
+  profileWrapperZodiac.innerText = membersProfile[membName].zodiac;
+  profileWrapperPosition.innerText = membersProfile[membName].position;
+  profileWrapperMbti.innerText = membersProfile[membName].mbti;
+  profileWrapperEmoji.innerText = membersProfile[membName].emoji;
+  clearActive();
+
+  profileWrapperNav.forEach((name) => {
+    console.log(name);
+    if (name.innerText == membName) {
+      name.classList.add("active");
+    }
+  });
+}
+
+profileWrapperNav.forEach((name) => {
+  name.addEventListener("click", (e) => {
+    profileWrapper.classList.add("hidden");
+
+    setTimeout(() => {
+      fillProfile(e.target.innerText);
+      profileWrapper.classList.remove("hidden");
+    }, 300);
+  });
+});
+
+function clearActive() {
+  profileWrapperNav.forEach((name) => {
+    name.classList.remove("active");
+  });
+}
