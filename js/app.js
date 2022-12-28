@@ -497,3 +497,26 @@ let endObserver = new IntersectionObserver(
 
 startObserver.observe(listStart);
 endObserver.observe(listEnd);
+
+const membersWrapper = document.querySelector(".members .wrapper");
+const profileWrapper = document.querySelector(".members .profile-wrapper");
+const profileWrapperNav = profileWrapper.querySelectorAll("li");
+
+const membersWrapperNames = membersWrapper.querySelectorAll("h2");
+
+membersWrapperNames.forEach((name) => {
+  name.addEventListener("click", (e) => {
+    membersWrapper.classList.add("hidden");
+
+    setTimeout(() => {
+      membersWrapper.classList.add("d-hidden");
+      profileWrapper.classList.remove("d-hidden");
+
+      setTimeout(() => {
+        profileWrapper.classList.remove("hidden");
+      }, 50);
+    }, 150);
+  });
+});
+
+console.log(membersWrapper, membersWrapperNames);
