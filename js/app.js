@@ -366,6 +366,8 @@ albumInfoTracklistBtn.addEventListener("click", () => {
 });
 
 function showAlbumInfo(e) {
+  clearActive(dataAlbums);
+  e.target.classList.add("active");
   let name = e.target.querySelector(".album-title").innerText;
 
   let tracks = ``;
@@ -539,7 +541,7 @@ function fillProfile(membName) {
   profileWrapperPosition.innerText = membersProfile[membName].position;
   profileWrapperMbti.innerText = membersProfile[membName].mbti;
   profileWrapperEmoji.innerText = membersProfile[membName].emoji;
-  clearActive();
+  clearActive(profileWrapperNav);
 
   profileWrapperNav.forEach((name) => {
     console.log(name);
@@ -560,8 +562,8 @@ profileWrapperNav.forEach((name) => {
   });
 });
 
-function clearActive() {
-  profileWrapperNav.forEach((name) => {
+function clearActive(clearArr) {
+  clearArr.forEach((name) => {
     name.classList.remove("active");
   });
 }
