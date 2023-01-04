@@ -244,6 +244,18 @@ section {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  position: relative;
+}
+.members .profile-wrapper .profile .cross {
+  font-size: 40px;
+  line-height: 20px;
+  font-weight: 100;
+  position: absolute;
+  right: 0;
+}
+.members .profile-wrapper .profile .cross:hover {
+  color: #c91919;
+  cursor: pointer;
 }
 .members .profile-wrapper .profile img {
   grid-column: 1/5;

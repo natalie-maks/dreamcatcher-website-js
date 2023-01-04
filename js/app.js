@@ -501,6 +501,7 @@ const membersWrapper = document.querySelector(".members .wrapper");
 const profileWrapper = document.querySelector(".members .profile-wrapper");
 const profileWrapperName = profileWrapper.querySelector("#profile-name");
 const profileWrapperImg = profileWrapper.querySelector("#profile-img");
+const profileWrapperCloseBtn = profileWrapper.querySelector("#prof-close-btn");
 const profileWrapperBirthName = profileWrapper.querySelector(
   "#profile-birth-name"
 );
@@ -514,6 +515,19 @@ const profileWrapperEmoji = profileWrapper.querySelector("#profile-emoji");
 const profileWrapperNav = profileWrapper.querySelectorAll(".profile-nav li");
 
 const membersWrapperNames = membersWrapper.querySelectorAll("h2");
+
+profileWrapperCloseBtn.addEventListener("click", () => {
+  profileWrapper.classList.add("hidden")
+
+  setTimeout(() => {
+    membersWrapper.classList.remove("d-hidden");
+    profileWrapper.classList.add("d-hidden");
+
+    setTimeout(() => {
+      membersWrapper.classList.remove("hidden");
+    }, 50);
+  }, 150);
+})
 
 membersWrapperNames.forEach((name) => {
   name.addEventListener("click", (e) => {

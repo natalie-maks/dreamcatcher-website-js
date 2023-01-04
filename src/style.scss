@@ -259,8 +259,22 @@ section {
     .profile {
       @include disp-grid(10);
       height: fit-content;
+      position: relative;
+      
 
-    
+    .cross {
+      font-size: 40px;
+      line-height: 20px;
+      
+      font-weight: 100;
+      position: absolute;
+      right: 0;
+
+      &:hover {
+        color: $red-color;
+        cursor: pointer;
+      }
+    }
       img {
         grid-column: 1/5;
         width: 90%;
