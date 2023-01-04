@@ -189,7 +189,7 @@ section {
 
     ul {
       display: flex;
-      list-style: none;
+
 
       li {
         margin-right: 48px;
@@ -221,7 +221,6 @@ section {
 
     ul {
       @include disp-grid(2);
-      list-style: none;
       width: 100%;
       height: fit-content;
 
@@ -306,7 +305,6 @@ section {
 
       ul {
         width: 100%;
-        list-style: none;
         display: flex;
         justify-content: flex-end;
 
@@ -344,7 +342,6 @@ section {
     }
 
     ul {
-      list-style: none;
       li {
         display: flex;
         margin-bottom: 8px;
@@ -434,8 +431,6 @@ section {
     }
 
     ul {
-      list-style: none;
-
       &.albums {
         max-height: 330px;
         overflow-y: scroll;
@@ -507,7 +502,6 @@ section {
 }
 
 .events {
-
   .wrapper {
     grid-column: 6/12;
     display: flex;
@@ -521,7 +515,6 @@ section {
 
     ul {
       width: 100%;
-      list-style: none;
 
       li {
         @include main-text;
@@ -551,9 +544,7 @@ section {
 
     ul {
       @include header2;
-
-      list-style: none;
-   @include disp-grid(3);
+      @include disp-grid(3);
       width: 100%;
       height: fit-content;
 
@@ -576,6 +567,10 @@ section {
   span {
     color: $red-color;
   }
+}
+
+ul {
+  list-style: none;
 }
 
 a {
@@ -634,4 +629,34 @@ a {
       }
     }
   }
+}
+
+@media (max-width: 500px) {
+  section {
+    padding: 32px;
+  }
+
+  .main-grid {
+    @include disp-grid (4);
+  }
+
+  .rotated-text {
+    font-size: 60px;
+    line-height: 60px;
+      transform: rotateZ(0) translateY(0);
+      grid-column: 1/5; 
+      align-self: center;
+  }
+
+  .about p {
+    grid-column: 1/5;
+    }
+
+    .members .wrapper, .music .wrapper, .events .wrapper, .media .wrapper {
+      grid-column: 1/5;
+    }
+
+    .music .album-info {
+      display: none;
+    }
 }
