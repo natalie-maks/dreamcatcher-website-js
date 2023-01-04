@@ -130,6 +130,13 @@ section {
   padding: 60px;
 }
 
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+
 .promo {
   height: 100vh;
   display: flex;
@@ -172,12 +179,6 @@ section {
   margin-right: 0;
 }
 
-.about {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  -moz-column-gap: 20px;
-       column-gap: 20px;
-}
 .about p {
   font-size: 20px;
   line-height: 20px;
@@ -188,12 +189,6 @@ section {
   align-items: center;
 }
 
-.members {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  -moz-column-gap: 20px;
-       column-gap: 20px;
-}
 .members .wrapper {
   grid-column: 6/12;
   display: flex;
@@ -201,12 +196,12 @@ section {
   transition: all 150ms ease-in-out;
 }
 .members .wrapper ul {
-  list-style: none;
-  width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   -moz-column-gap: 20px;
        column-gap: 20px;
+  list-style: none;
+  width: 100%;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -244,11 +239,13 @@ section {
   transition: all 300ms ease-in-out;
 }
 .members .profile-wrapper .profile {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  -moz-column-gap: 20px;
+       column-gap: 20px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
 }
 .members .profile-wrapper .profile img {
   grid-column: 1/5;
@@ -319,12 +316,6 @@ section {
   margin-right: 0;
 }
 
-.music {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  -moz-column-gap: 20px;
-       column-gap: 20px;
-}
 .music .album-info {
   grid-column: 3/6;
   width: 100%;
@@ -473,12 +464,6 @@ section {
   margin-top: 8px;
 }
 
-.events {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  -moz-column-gap: 20px;
-       column-gap: 20px;
-}
 .events .wrapper {
   grid-column: 6/12;
   display: flex;
@@ -515,12 +500,6 @@ section {
   grid-column: 4/7;
 }
 
-.media {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  -moz-column-gap: 20px;
-       column-gap: 20px;
-}
 .media .wrapper {
   display: flex;
   align-items: center;

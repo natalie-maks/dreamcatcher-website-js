@@ -149,13 +149,15 @@ section {
   padding: 60px;
 }
 
-@mixin disp-grid {
+@mixin disp-grid ($repeat) {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat($repeat, 1fr);
   column-gap: 20px;
 }
 
-
+.main-grid {
+  @include disp-grid (12);
+}
 
 .promo {
   height: 100vh;
@@ -201,10 +203,6 @@ section {
 }
 
 .about {
-  @include disp-grid;
-
-
-
   p {
     @include main-text;
     line-height: 32px;
@@ -215,10 +213,6 @@ section {
 }
 
 .members {
-  @include disp-grid;
-
-
-
   .wrapper {
     grid-column: 6/12;
     display: flex;
@@ -226,11 +220,9 @@ section {
     transition: all 150ms ease-in-out;
 
     ul {
+      @include disp-grid(2);
       list-style: none;
       width: 100%;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      column-gap: 20px;
       height: fit-content;
 
       li {
@@ -266,11 +258,10 @@ section {
     transition: all 300ms ease-in-out;
 
     .profile {
+      @include disp-grid(10);
       height: fit-content;
 
-      display: grid;
-      grid-template-columns: repeat(10, 1fr);
-
+    
       img {
         grid-column: 1/5;
         width: 90%;
@@ -293,9 +284,7 @@ section {
           height: fit-content;
 
           li {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            column-gap: 20px;
+         @include disp-grid(5);
             margin-bottom: 20px;
 
             span.desc {
@@ -343,9 +332,6 @@ section {
 }
 
 .music {
-  @include disp-grid;
-
-
 
   .album-info {
     grid-column: 3/6;
@@ -521,8 +507,6 @@ section {
 }
 
 .events {
-  @include disp-grid;
-
 
   .wrapper {
     grid-column: 6/12;
@@ -542,9 +526,7 @@ section {
       li {
         @include main-text;
         margin-bottom: 24px;
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        column-gap: 20px;
+       @include disp-grid(6);
 
         span:nth-of-type(1) {
           grid-column: 1;
@@ -562,10 +544,6 @@ section {
 }
 
 .media {
-  @include disp-grid;
-
-
-
   .wrapper {
     display: flex;
     align-items: center;
@@ -575,9 +553,7 @@ section {
       @include header2;
 
       list-style: none;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      column-gap: 20px;
+   @include disp-grid(3);
       width: 100%;
       height: fit-content;
 
