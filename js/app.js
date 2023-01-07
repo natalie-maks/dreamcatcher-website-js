@@ -366,31 +366,83 @@ albumInfoTracklistBtn.addEventListener("click", () => {
 });
 
 function showAlbumInfo(e) {
-  clearActive(dataAlbums);
-  e.target.classList.add("active");
-  let name = e.target.querySelector(".album-title").innerText;
+  if (innerWidth > 1000) {
+    clearActive(dataAlbums);
+    e.target.classList.add("active");
+    let name = e.target.querySelector(".album-title").innerText;
 
-  let tracks = ``;
+    let tracks = ``;
 
-  albums[name].tracklist.forEach((track, i) => {
-    tracks += `<li><span>${i + 1}.</span> ${track}</li>`;
-  });
-  albumInfo.classList.add("hidden");
-  albumInfoTracklist.classList.add("hidden");
-  tracklistShadow.classList.remove("hidden");
+    albums[name].tracklist.forEach((track, i) => {
+      tracks += `<li><span>${i + 1}.</span> ${track}</li>`;
+    });
+    albumInfo.classList.add("hidden");
+    albumInfoTracklist.classList.add("hidden");
+    tracklistShadow.classList.remove("hidden");
 
-  setTimeout(() => {
-    albumInfoTracklistBtn.innerText = `Show tracklist`;
-    albumInfoDate.innerText = albums[name].date;
-    albumInfoLang.innerText = albums[name].language;
-    albumInfoTracklist.innerHTML = tracks;
-    albumInfoImg.setAttribute("src", albums[name].img);
-    if (albumInfoTracklist.clientHeight < 200) {
-      tracklistShadow.classList.add("hidden");
-    }
+    setTimeout(() => {
+      albumInfoTracklistBtn.innerText = `Show tracklist`;
+      albumInfoDate.innerText = albums[name].date;
+      albumInfoLang.innerText = albums[name].language;
+      albumInfoTracklist.innerHTML = tracks;
+      albumInfoImg.setAttribute("src", albums[name].img);
+      if (albumInfoTracklist.clientHeight < 200) {
+        tracklistShadow.classList.add("hidden");
+      }
 
-    albumInfo.classList.remove("hidden");
-  }, 200);
+      albumInfo.classList.remove("hidden");
+    }, 200);
+  } else {
+    const footer = document.querySelector("footer");
+
+    let albumPhoneCard = document.createElement("div");
+    albumPhoneCard.classList.add("album-phone", "hidden");
+
+    albumPhoneCard.innerHTML = `
+    <div class="album-phone">
+        <div class="wrapper">
+          <header>
+            <h3>Apocalypse follow us</h3>
+            <p class="cross" id="prof-close-btn">×</p>
+          </header>
+          <img src="/media/album-covers/apocalypse-follow-us.png" alt="" />
+          <ul>
+            <li>
+              <span class="desc">Release date:</span>
+              <span>11/01/2022 </span>
+            </li>
+            <li><span class="desc">Language:</span> <span> Korean</span></li>
+          </ul>
+          <p class="tracklist">Tracklist</p>
+          <div class="tracklist-wrapper">
+            <ol class="scroll">
+              <li><span class="count">1.</span><span>Trap</span></li>
+              <li>
+                <span class="count">2.</span
+                ><span>And there is noone left</span>
+              </li>
+              <li><span class="count">3.</span><span>Because</span></li>
+              <li><span class="count">4.</span><span>Wake Up</span></li>
+              <li><span class="count">5.</span><span>Scream</span></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    `;
+
+    footer.append(albumPhoneCard);
+    setTimeout(() => {
+      albumPhoneCard.classList.remove("hidden");
+    }, 50);
+    let closeBtn = albumPhoneCard.querySelector(".cross");
+    closeBtn.addEventListener("click", () => {
+      albumPhoneCard.classList.add("hidden");
+
+      setTimeout(() => {
+        albumPhoneCard.remove();
+      }, 300);
+    });
+  }
 }
 
 function observeTracklist() {
