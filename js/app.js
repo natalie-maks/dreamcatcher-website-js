@@ -409,11 +409,10 @@ function showAlbumInfo(e) {
     <div class="album-phone">
         <div class="wrapper">
           <header>
-            <h3>${name}
-              <span>${albums[name].albumType}</span>
-            </h3>
+              <p>${albums[name].albumType}</p>
             <p class="cross" id="prof-close-btn">×</p>
           </header>
+          <h3>${name} </h3>
           <img src="${albums[name].img}" alt="" />
           <ul>
             <li>
