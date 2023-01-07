@@ -710,9 +710,17 @@ a {
       }
 
       h3 {
-        font-size: 28px;
-        line-height: 32px;
+        font-size: 24px;
+        line-height: 24px;
         font-weight: 400;
+
+        span {
+          display: block;
+          font-size: 20px;
+          font-weight: 300;
+          font-style: italic;
+          margin-top: 4px;
+        }
       }
     }
 
@@ -724,6 +732,7 @@ a {
 
     p.tracklist {
       @include main-text;
+      font-weight: 400;
       text-align: center;
       margin-block: 12px;
     }
@@ -740,9 +749,7 @@ a {
       span {
         display: inline-block;
 
-        &.count {
-          width: 30px;
-        }
+        width: 30px;
       }
     }
 

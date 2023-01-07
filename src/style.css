@@ -666,9 +666,16 @@ a:hover {
   cursor: pointer;
 }
 .album-phone .wrapper header h3 {
-  font-size: 28px;
-  line-height: 32px;
+  font-size: 24px;
+  line-height: 24px;
   font-weight: 400;
+}
+.album-phone .wrapper header h3 span {
+  display: block;
+  font-size: 20px;
+  font-weight: 300;
+  font-style: italic;
+  margin-top: 4px;
 }
 .album-phone .wrapper ul li {
   display: grid;
@@ -684,6 +691,7 @@ a:hover {
   font-size: 20px;
   line-height: 20px;
   font-weight: 300;
+  font-weight: 400;
   text-align: center;
   margin-block: 12px;
 }
@@ -700,8 +708,6 @@ a:hover {
 }
 .album-phone .wrapper ol span {
   display: inline-block;
-}
-.album-phone .wrapper ol span.count {
   width: 30px;
 }
 .album-phone .wrapper::-webkit-scrollbar {

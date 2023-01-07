@@ -398,32 +398,34 @@ function showAlbumInfo(e) {
     let albumPhoneCard = document.createElement("div");
     albumPhoneCard.classList.add("album-phone", "hidden");
 
+    console.log(e.target);
+    let name = e.target.querySelector(".album-title").innerText;
+    let tracks = ``;
+
+    albums[name].tracklist.forEach((track, i) => {
+      tracks += `<li><span>${i + 1}.</span> ${track}</li>`;
+    });
     albumPhoneCard.innerHTML = `
     <div class="album-phone">
         <div class="wrapper">
           <header>
-            <h3>Apocalypse follow us</h3>
+            <h3>${name}
+              <span>${albums[name].albumType}</span>
+            </h3>
             <p class="cross" id="prof-close-btn">×</p>
           </header>
-          <img src="/media/album-covers/apocalypse-follow-us.png" alt="" />
+          <img src="${albums[name].img}" alt="" />
           <ul>
             <li>
               <span class="desc">Release date:</span>
-              <span>11/01/2022 </span>
+              <span>${albums[name].date}</span>
             </li>
-            <li><span class="desc">Language:</span> <span> Korean</span></li>
+            <li><span class="desc">Language:</span> <span>${albums[name].language}</span></li>
           </ul>
           <p class="tracklist">Tracklist</p>
           <div class="tracklist-wrapper">
             <ol class="scroll">
-              <li><span class="count">1.</span><span>Trap</span></li>
-              <li>
-                <span class="count">2.</span
-                ><span>And there is noone left</span>
-              </li>
-              <li><span class="count">3.</span><span>Because</span></li>
-              <li><span class="count">4.</span><span>Wake Up</span></li>
-              <li><span class="count">5.</span><span>Scream</span></li>
+              ${tracks}
             </ol>
           </div>
         </div>
