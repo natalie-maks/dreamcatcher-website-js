@@ -554,36 +554,48 @@ membersWrapperNames.forEach((name) => {
    
           <div class="wrapper">
             <header>
-              <h2 id="profile-name">JIU</h2>
+              <h2 id="profile-name">${e.target.innerText}</h2>
               <p class="cross" id="prof-close-btn">×</p>
             </header>
-            <img src="/media/profile-pic/jiu.png" id="profile-img" alt="" />
+            <img src="${
+              membersProfile[e.target.innerText].img
+            }" id="profile-img" alt="" />
             <ul>
               <li>
                 <span class="desc">Birth Name:</span>
-                <span id="profile-birth-name"> Kim Min Ji </span>
+                <span id="profile-birth-name">${
+                  membersProfile[e.target.innerText].birthname
+                }</span>
               </li>
               <li>
                 <span class="desc">Birthday:</span>
-                <span id="profile-birthday"> May 17, 1994</span>
+                <span id="profile-birthday">${
+                  membersProfile[e.target.innerText].birthday
+                }</span>
               </li>
               <li>
                 <span class="desc">Zodiac Sign:</span>
-                <span id="profile-zodiac"> Taurus</span>
+                <span id="profile-zodiac">${
+                  membersProfile[e.target.innerText].zodiac
+                }</span>
               </li>
               <li>
                 <span class="desc">Position:</span>
                 <span id="profile-position">
-                  Leader, Lead Vocalist, Lead Dancer, Visual
+                 ${membersProfile[e.target.innerText].position}
                 </span>
               </li>
               <li>
                 <span class="desc">MBTI Type:</span>
-                <span id="profile-mbti">ENFP</span>
+                <span id="profile-mbti">${
+                  membersProfile[e.target.innerText].mbti
+                }</span>
               </li>
               <li>
                 <span class="desc">Animal Emoji:</span>
-                <span id="profile-emoji"> 🐰 </span>
+                <span id="profile-emoji">${
+                  membersProfile[e.target.innerText].emoji
+                }</span>
               </li>
             </ul>
           </div>
