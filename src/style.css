@@ -567,8 +567,8 @@ a:hover {
   color: #c91919;
   width: 90%;
   max-width: 500px;
-  height: 90vh;
-  overflow-y: scroll;
+  max-height: 85vh;
+  overflow-y: overlay;
   padding: 24px;
   background-color: #fff;
   display: flex;
@@ -625,6 +625,92 @@ a:hover {
   background-color: rgb(197, 197, 197);
 }
 .profile-phone .wrapper::-webkit-scrollbar-thumb {
+  background-color: rgb(172, 172, 172);
+}
+
+.album-phone {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #0e0303;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  transition: all 300ms ease-in-out;
+}
+.album-phone .wrapper {
+  color: #c91919;
+  width: 90%;
+  max-width: 500px;
+  max-height: 85vh;
+  overflow-y: overlay;
+  padding: 24px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.album-phone .wrapper img {
+  width: 100%;
+  margin-block: 24px;
+}
+.album-phone .wrapper header {
+  display: flex;
+  justify-content: space-between;
+}
+.album-phone .wrapper header .cross {
+  font-size: 48px;
+  line-height: 32px;
+  cursor: pointer;
+}
+.album-phone .wrapper header h3 {
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 400;
+}
+.album-phone .wrapper ul li {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 300;
+  margin-bottom: 8px;
+}
+.album-phone .wrapper p.tracklist {
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 300;
+  text-align: center;
+  margin-block: 12px;
+}
+.album-phone .wrapper ol {
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 300;
+  line-height: 24px;
+  list-style: none;
+  width: 100%;
+}
+.album-phone .wrapper ol li {
+  margin-bottom: 8px;
+}
+.album-phone .wrapper ol span {
+  display: inline-block;
+}
+.album-phone .wrapper ol span.count {
+  width: 30px;
+}
+.album-phone .wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+.album-phone .wrapper::-webkit-scrollbar-track {
+  background-color: rgb(197, 197, 197);
+}
+.album-phone .wrapper::-webkit-scrollbar-thumb {
   background-color: rgb(172, 172, 172);
 }
 
