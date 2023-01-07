@@ -47,6 +47,9 @@ header nav ul li {
   line-height: 24px;
   font-weight: 500;
 }
+header nav .menu-btn {
+  display: none;
+}
 header .img-wrapper {
   width: 100%;
   height: 120vh;
@@ -762,6 +765,58 @@ a:hover {
 }
 
 @media (max-width: 500px) {
+  header nav {
+    position: fixed;
+    right: 0;
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    background: none;
+    z-index: 2;
+    opacity: 1;
+    transition: all 200ms ease-in;
+  }
+  header nav.header {
+    background-color: rgba(43, 31, 31, 0.4);
+    width: 100%;
+  }
+  header nav.active {
+    width: 100%;
+  }
+  header nav.active ul {
+    opacity: 0;
+    transition: all 200ms ease-in;
+    display: block;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+  header nav.active ul li {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 24px 0;
+  }
+  header nav .menu-btn {
+    display: block;
+    border: none;
+    background: none;
+    color: #fff;
+    text-align: right;
+    font-size: 24px;
+    line-height: 56px;
+    padding-inline: 12px;
+    align-self: flex-end;
+  }
+  header nav ul {
+    display: none;
+  }
+  header nav.visible {
+    background-color: #1b0e0e;
+  }
+  header nav.visible ul {
+    opacity: 1;
+  }
   section {
     padding: 32px;
     min-height: auto;
@@ -773,8 +828,8 @@ a:hover {
          column-gap: 20px;
   }
   .rotated-text {
-    font-size: 60px;
-    line-height: 60px;
+    font-size: 56px;
+    line-height: 56px;
     transform: rotateZ(0) translateY(0);
     grid-column: 1/5;
     margin-bottom: 112px;

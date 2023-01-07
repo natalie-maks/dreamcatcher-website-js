@@ -757,3 +757,36 @@ let musicObserver = new IntersectionObserver(
 );
 
 musicObserver.observe(music);
+
+const nav = document.querySelector("header nav");
+const navLinks = document.querySelector("header nav ul");
+const menuBtn = document.querySelector(".menu-btn");
+const menuIcon = menuBtn.querySelector("i");
+
+menuBtn.addEventListener("click", () => {
+  menuIcon.classList.toggle("fa-bars");
+  menuIcon.classList.toggle("fa-xmark");
+
+  if (nav.classList.contains("active")) {
+    nav.classList.remove("visible");
+
+    setTimeout(() => {
+      nav.classList.remove("active");
+    }, 200);
+  } else {
+    nav.classList.add("active");
+    setTimeout(() => {
+      nav.classList.add("visible");
+    }, 50);
+  }
+});
+
+navLinks.addEventListener("click", () => {
+  nav.classList.remove("visible");
+  menuIcon.classList.add("fa-bars");
+  menuIcon.classList.remove("fa-xmark");
+
+  setTimeout(() => {
+    nav.classList.remove("active");
+  }, 200);
+});
