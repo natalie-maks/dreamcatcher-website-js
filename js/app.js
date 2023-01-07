@@ -548,7 +548,7 @@ membersWrapperNames.forEach((name) => {
       const footer = document.querySelector("footer");
 
       let memberPhoneCard = document.createElement("div");
-      memberPhoneCard.classList.add("profile-phone");
+      memberPhoneCard.classList.add("profile-phone", "hidden");
 
       memberPhoneCard.innerHTML = `
    
@@ -602,10 +602,16 @@ membersWrapperNames.forEach((name) => {
         
 `;
       footer.append(memberPhoneCard);
-
+      setTimeout(() => {
+        memberPhoneCard.classList.remove("hidden");
+      }, 50);
       let closeBtn = memberPhoneCard.querySelector(".cross");
       closeBtn.addEventListener("click", () => {
-        memberPhoneCard.remove();
+        memberPhoneCard.classList.add("hidden");
+
+        setTimeout(() => {
+          memberPhoneCard.remove();
+        }, 300);
       });
     }
   });
