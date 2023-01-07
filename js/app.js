@@ -517,7 +517,7 @@ const profileWrapperNav = profileWrapper.querySelectorAll(".profile-nav li");
 const membersWrapperNames = membersWrapper.querySelectorAll("h2");
 
 profileWrapperCloseBtn.addEventListener("click", () => {
-  profileWrapper.classList.add("hidden")
+  profileWrapper.classList.add("hidden");
 
   setTimeout(() => {
     membersWrapper.classList.remove("d-hidden");
@@ -527,22 +527,75 @@ profileWrapperCloseBtn.addEventListener("click", () => {
       membersWrapper.classList.remove("hidden");
     }, 50);
   }, 150);
-})
+});
 
 membersWrapperNames.forEach((name) => {
   name.addEventListener("click", (e) => {
-    fillProfile(e.target.innerText);
+    if (innerWidth > 1000) {
+      fillProfile(e.target.innerText);
 
-    membersWrapper.classList.add("hidden");
-
-    setTimeout(() => {
-      membersWrapper.classList.add("d-hidden");
-      profileWrapper.classList.remove("d-hidden");
+      membersWrapper.classList.add("hidden");
 
       setTimeout(() => {
-        profileWrapper.classList.remove("hidden");
-      }, 50);
-    }, 150);
+        membersWrapper.classList.add("d-hidden");
+        profileWrapper.classList.remove("d-hidden");
+
+        setTimeout(() => {
+          profileWrapper.classList.remove("hidden");
+        }, 50);
+      }, 150);
+    } else {
+      const footer = document.querySelector("footer");
+
+      let memberPhoneCard = document.createElement("div");
+      memberPhoneCard.classList.add("profile-phone");
+
+      memberPhoneCard.innerHTML = `
+   
+          <div class="wrapper">
+            <header>
+              <h2 id="profile-name">JIU</h2>
+              <p class="cross" id="prof-close-btn">×</p>
+            </header>
+            <img src="/media/profile-pic/jiu.png" id="profile-img" alt="" />
+            <ul>
+              <li>
+                <span class="desc">Birth Name:</span>
+                <span id="profile-birth-name"> Kim Min Ji </span>
+              </li>
+              <li>
+                <span class="desc">Birthday:</span>
+                <span id="profile-birthday"> May 17, 1994</span>
+              </li>
+              <li>
+                <span class="desc">Zodiac Sign:</span>
+                <span id="profile-zodiac"> Taurus</span>
+              </li>
+              <li>
+                <span class="desc">Position:</span>
+                <span id="profile-position">
+                  Leader, Lead Vocalist, Lead Dancer, Visual
+                </span>
+              </li>
+              <li>
+                <span class="desc">MBTI Type:</span>
+                <span id="profile-mbti">ENFP</span>
+              </li>
+              <li>
+                <span class="desc">Animal Emoji:</span>
+                <span id="profile-emoji"> 🐰 </span>
+              </li>
+            </ul>
+          </div>
+        
+`;
+      footer.append(memberPhoneCard);
+
+      let closeBtn = memberPhoneCard.querySelector(".cross");
+      closeBtn.addEventListener("click", () => {
+        memberPhoneCard.remove();
+      });
+    }
   });
 });
 
