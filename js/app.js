@@ -102,7 +102,7 @@ const albums = {
     img: "/media/album-covers/apocalypse-save-us.png",
   },
   "Summer Holiday": {
-    albumType: "special mini-album",
+    albumType: "Special mini-album",
     language: "Korean",
     date: "30.07.21",
     tracklist: [
@@ -145,7 +145,7 @@ const albums = {
     img: "/media/album-covers/dystopia-road-to-utopia.png",
   },
   "No More": {
-    albumType: "japanese digital single",
+    albumType: "Japanese digital single",
     language: "Japanese",
     date: "20.11.20",
     tracklist: ["No More"],
@@ -206,7 +206,7 @@ const albums = {
     img: "/media/album-covers/dystopia-the-tree-of-language.png",
   },
   "Raid of Dream": {
-    albumType: "special mini-album",
+    albumType: "Special mini-album",
     language: "Korean",
     date: "18.09.19",
     tracklist: [
@@ -409,7 +409,7 @@ function showAlbumInfo(e) {
     <div class="album-phone">
         <div class="wrapper">
           <header>
-              <p>${albums[name].albumType}</p>
+              <p class="album-type">${albums[name].albumType}</p>
             <p class="cross" id="prof-close-btn">×</p>
           </header>
           <h3>${name} </h3>
@@ -708,14 +708,17 @@ function clearActive(clearArr) {
 
 const header = document.querySelector("header");
 const headerNav = header.querySelector("nav");
+const menuBtn = document.querySelector(".menu-btn");
 
 let headerObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         headerNav.classList.add("header");
+        menuBtn.classList.add("hidden");
       } else {
         headerNav.classList.remove("header");
+        menuBtn.classList.remove("hidden");
       }
     });
   },
@@ -760,10 +763,12 @@ musicObserver.observe(music);
 
 const nav = document.querySelector("header nav");
 const navLinks = document.querySelector("header nav ul");
-const menuBtn = document.querySelector(".menu-btn");
 const menuIcon = menuBtn.querySelector("i");
 
 menuBtn.addEventListener("click", () => {
+  if (nav.classList.contains("header")) {
+    return;
+  }
   menuIcon.classList.toggle("fa-bars");
   menuIcon.classList.toggle("fa-xmark");
 
