@@ -881,4 +881,46 @@ a:hover {
   .media .wrapper ul li {
     margin-bottom: 44px;
   }
+}
+@media (max-width: 1000px) {
+  header nav ul li {
+    margin-inline: 20px;
+  }
+  header nav ul li a {
+    font-size: 20px;
+  }
+  .main-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    -moz-column-gap: 20px;
+         column-gap: 20px;
+  }
+  .about p {
+    grid-column: 4/9;
+  }
+  .members .wrapper {
+    grid-column: 4/9;
+  }
+  .members .wrapper ul {
+    display: block;
+    margin-top: 92px;
+  }
+  .music .wrapper {
+    grid-column: 5/9;
+  }
+  .music .album-info {
+    display: none;
+  }
+  .events .wrapper {
+    grid-column: 4/9;
+  }
+  .media .wrapper {
+    grid-column: 4/9;
+  }
+  .media .wrapper ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    -moz-column-gap: 20px;
+         column-gap: 20px;
+  }
 }/*# sourceMappingURL=style.css.map */

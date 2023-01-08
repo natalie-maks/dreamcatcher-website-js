@@ -962,3 +962,54 @@ a {
     }
   }
 }
+
+@media (max-width: 1000px) {
+  header {
+    nav {
+      ul li {
+        margin-inline: 20px;
+
+        a {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  .main-grid {
+    @include disp-grid(8);
+  }
+
+  .about p {
+    grid-column: 4/9;
+  }
+
+  .members .wrapper {
+    grid-column: 4/9;
+
+    ul {
+      display: block;
+      margin-top: 92px;
+    }
+  }
+
+  .music .wrapper {
+    grid-column: 5/9;
+  }
+
+  .music .album-info {
+    display: none;
+  }
+
+  .events .wrapper {
+    grid-column: 4/9;
+  }
+
+  .media .wrapper {
+    grid-column: 4/9;
+
+    ul {
+      @include disp-grid(2);
+    }
+  }
+}
