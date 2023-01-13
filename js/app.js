@@ -769,10 +769,6 @@ const nav = document.querySelector("header nav");
 const navLinks = document.querySelector("header nav ul");
 const menuIcon = menuBtn.querySelector("i");
 
-if (innerWidth > 1000) {
-  menuBtn.style.display = `none`;
-}
-
 menuBtn.addEventListener("click", () => {
   if (innerWidth > 500) {
     if (nav.classList.contains("header")) {

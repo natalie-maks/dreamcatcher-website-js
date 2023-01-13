@@ -20,11 +20,6 @@ ul {
 a {
   text-decoration: none;
   color: #fff;
-  transition: all 150ms ease-in;
-
-  &:hover {
-    color: $red-color;
-  }
 }
 
 @mixin header1 {
@@ -267,7 +262,6 @@ section {
     grid-column: 1/5;
     display: flex;
     align-items: center;
-    transition: all 150ms ease-in-out;
 
     ul {
       display: block;
@@ -280,7 +274,6 @@ section {
         h2 {
           @include header2;
           margin-bottom: 12px;
-          transition: all 150ms ease-in;
         }
 
         p {
@@ -324,10 +317,6 @@ section {
         max-height: 330px;
         overflow-y: scroll;
 
-        li {
-          transition: all 150ms ease-in;
-        }
-
         &::-webkit-scrollbar-track {
           margin-block: 24px;
         }
@@ -347,7 +336,7 @@ section {
       height: 332px;
       background: linear-gradient(rgba(14, 3, 3, 0) 80%, #0e0303 100%);
       position: absolute;
-      top: 0;
+      top: -1px;
       pointer-events: none;
       transition: all 300ms ease-in-out;
 
@@ -641,10 +630,6 @@ section {
   display: none !important;
 }
 
-.active {
-  color: $red-color;
-}
-
 .scroll {
   &::-webkit-scrollbar {
     width: 8px;
@@ -658,26 +643,6 @@ section {
   &::-webkit-scrollbar-thumb {
     background-color: #0e0303;
     border-radius: 10px;
-  }
-
-  &:hover {
-    &::-webkit-scrollbar-track {
-      background-color: #0e0303;
-      border-radius: 10px;
-
-      &:hover {
-        background-color: #1b0e0e;
-      }
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: #1b0e0e;
-      border-radius: 10px;
-
-      &:hover {
-        background-color: #fff;
-      }
-    }
   }
 }
 
@@ -799,33 +764,6 @@ section {
 }
 
 @media (min-width: 1000px) {
-  header {
-    nav {
-      height: 56px;
-      width: 100%;
-      flex-direction: row;
-      opacity: 0;
-      background-color: #1b0e0e;
-
-      &.header {
-        background-color: rgba(43, 31, 31, 0.4);
-        opacity: 1;
-      }
-
-      &:hover {
-        opacity: 1;
-      }
-
-      ul {
-        display: flex;
-      }
-    }
-
-    .menu-btn {
-      display: none;
-    }
-  }
-
   section {
     max-width: 1200px;
   }
@@ -850,19 +788,11 @@ section {
   .members {
     .wrapper {
       grid-column: 6/12;
+      transition: all 150ms ease-in-out;
 
       ul {
         @include disp-grid(2);
         margin: 0;
-
-        li {
-          h2 {
-            &:hover {
-              color: $red-color;
-              cursor: pointer;
-            }
-          }
-        }
       }
     }
 
@@ -880,16 +810,11 @@ section {
         .cross {
           font-size: 40px;
           line-height: 20px;
-
           font-weight: 100;
           position: absolute;
           right: 0;
-
-          &:hover {
-            color: $red-color;
-            cursor: pointer;
-          }
         }
+
         img {
           grid-column: 1/5;
           width: 100%;
@@ -938,16 +863,10 @@ section {
           justify-content: flex-end;
 
           li {
-            margin-right: 48px;
+            margin-right: 32px;
             font-size: 24px;
             line-height: 24px;
             font-weight: 500;
-
-            transition: all 150ms ease-in;
-            &:hover {
-              color: $red-color;
-              cursor: pointer;
-            }
 
             &:last-of-type {
               margin-right: 0;
@@ -995,11 +914,6 @@ section {
         color: #fff;
         margin-block: 16px;
         transition: all 150ms ease-in;
-
-        &:hover {
-          color: $red-color;
-          cursor: pointer;
-        }
       }
 
       .tracklist-wrapper {
@@ -1026,11 +940,11 @@ section {
 
       .tracklist-shadow {
         width: calc(100% - 8px);
-        height: 200px;
+        height: 204px;
         background: linear-gradient(rgba(14, 3, 3, 0) 80%, #0e0303 100%);
 
         position: absolute;
-        top: 0;
+        top: -1px;
         pointer-events: none;
         transition: all 150ms ease-in-out;
 
@@ -1055,17 +969,6 @@ section {
       h2 {
         margin-top: 92px;
       }
-
-      ul {
-        &.albums {
-          li {
-            &:hover {
-              color: $red-color;
-              cursor: pointer;
-            }
-          }
-        }
-      }
     }
   }
 
@@ -1086,6 +989,107 @@ section {
           margin-bottom: 72px;
         }
       }
+    }
+  }
+
+  .active {
+    color: $red-color;
+  }
+}
+
+@media (hover: hover) {
+  header {
+    nav {
+      height: 56px;
+      width: 100%;
+      flex-direction: row;
+      opacity: 0;
+      background-color: #1b0e0e;
+
+      &.header {
+        background-color: rgba(43, 31, 31, 0.4);
+        opacity: 1;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+
+      ul {
+        display: flex;
+      }
+    }
+
+    .menu-btn {
+      display: none !important;
+    }
+  }
+
+  a {
+    transition: all 150ms ease-in;
+
+    &:hover {
+      color: $red-color;
+    }
+  }
+
+  .scroll {
+    &:hover {
+      &::-webkit-scrollbar-track {
+        background-color: #1b0e0e;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #2b1f1f;
+
+        &:hover {
+          background-color: #fff;
+        }
+      }
+    }
+  }
+
+  .members {
+    .wrapper ul li {
+      h2 {
+        transition: all 150ms ease-in;
+
+        &:hover {
+          color: $red-color;
+          cursor: pointer;
+        }
+      }
+    }
+    .profile-wrapper {
+      .profile .cross:hover {
+        color: $red-color;
+        cursor: pointer;
+      }
+
+      .profile-nav ul li {
+        transition: all 150ms ease-in;
+
+        &:hover {
+          color: $red-color;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .music {
+    .wrapper ul.albums li {
+      transition: all 150ms ease-in;
+
+      &:hover {
+        color: $red-color;
+        cursor: pointer;
+      }
+    }
+
+    .album-info button:hover {
+      color: $red-color;
+      cursor: pointer;
     }
   }
 }
