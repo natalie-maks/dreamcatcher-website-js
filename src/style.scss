@@ -1,26 +1,19 @@
-$red-color: #c91919;
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  width: 100%;
-  background-color: #0e0303;
-  color: #fff;
-  font-family: "Poppins", sans-serif;
-}
-
-ul {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-  color: #fff;
-}
+$red: #c91919;
+$white: rgb(252, 251, 246);
+$dark-brown: #0e0303;
+$brown: #1b0e0e;
+$light-brown: #2b1f1f;
+$brown-transparent: rgba(43, 31, 31, 0.4);
+$light-grey: rgb(197, 197, 197);
+$grey: rgb(172, 172, 172);
+$shadow: linear-gradient(rgba(14, 3, 3, 0) 80%, #0e0303 100%);
+$shadow-top: linear-gradient(
+  #0e0303 0%,
+  rgba(14, 3, 3, 0) 20%,
+  rgba(14, 3, 3, 0) 80%,
+  #0e0303 100%
+);
+$shadow-end: linear-gradient(#0e0303 0%, rgba(14, 3, 3, 0) 20%);
 
 @mixin header1 {
   font-size: 40px;
@@ -49,19 +42,53 @@ a {
   font-style: italic;
 }
 
+@mixin disp-grid($repeat) {
+  display: grid;
+  grid-template-columns: repeat($repeat, 1fr);
+  column-gap: 20px;
+}
+
+@mixin disp-flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  background-color: $dark-brown;
+  color: $white;
+  font-family: "Poppins", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: $white;
+}
+
 div.red-line {
-  background-color: $red-color;
   height: 60px;
   font-size: 40px;
   line-height: 40px;
   font-weight: 600;
+  background-color: $red;
   overflow: hidden;
 
   p {
+    @include disp-flex(auto, auto, center);
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
     white-space: nowrap;
   }
 
@@ -72,7 +99,6 @@ div.red-line {
 
   .line2 {
     display: inline-block;
-
     animation: scrolling-left2 60s linear infinite;
     animation-delay: -30s;
   }
@@ -103,22 +129,19 @@ header {
   width: 100%;
   height: fit-content;
   nav {
-    position: fixed;
-    right: 0;
+    @include disp-flex(column, center, center);
     height: auto;
     width: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background: none;
+    position: fixed;
+    right: 0;
     z-index: 2;
+    background: none;
     opacity: 1;
     transition: all 200ms ease-in;
 
     &.header {
-      background-color: rgba(43, 31, 31, 0.4);
       width: 100%;
+      background-color: $brown-transparent;
     }
 
     &.active {
@@ -135,36 +158,35 @@ header {
 
     .menu-btn {
       display: block;
-      border: none;
-      background: none;
-      color: #fff;
-      text-align: right;
+      align-self: flex-end;
+      padding-inline: 12px;
       font-size: 24px;
       line-height: 56px;
-      padding-inline: 12px;
-      align-self: flex-end;
+      text-align: right;
+      background: none;
+      color: $white;
+      border: none;
     }
 
     ul {
       display: none;
-      transition: all 200ms ease-in;
       width: 100%;
       margin-bottom: 24px;
+      transition: all 200ms ease-in;
 
       li {
-        color: #fff;
-        margin-inline: 30px;
+        width: 100%;
+        margin: 24px 0;
+        text-align: center;
         font-size: 24px;
         line-height: 24px;
         font-weight: 500;
-        width: 100%;
-        text-align: center;
-        margin: 24px 0;
+        color: $white;
       }
     }
 
     &.visible {
-      background-color: #1b0e0e;
+      background-color: $brown;
       ul {
         opacity: 1;
       }
@@ -186,16 +208,10 @@ header {
 
 section {
   width: 100%;
+  min-height: auto;
   margin: 0 auto;
   margin-top: 200px;
   padding: 32px;
-  min-height: auto;
-}
-
-@mixin disp-grid($repeat) {
-  display: grid;
-  grid-template-columns: repeat($repeat, 1fr);
-  column-gap: 20px;
 }
 
 .main-grid {
@@ -203,11 +219,8 @@ section {
 }
 
 .promo {
+  @include disp-flex(column, center, center);
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   text-align: center;
 
   img {
@@ -250,18 +263,16 @@ section {
 .about {
   p {
     @include main-text;
-    line-height: 32px;
+    @include disp-flex(auto, auto, center);
     grid-column: 1/5;
-    display: flex;
-    align-items: center;
+    line-height: 32px;
   }
 }
 
 .members {
   .wrapper {
+    @include disp-flex(auto, auto, center);
     grid-column: 1/5;
-    display: flex;
-    align-items: center;
 
     ul {
       display: block;
@@ -334,23 +345,18 @@ section {
     .album-shadow {
       width: calc(100% - 8px);
       height: 332px;
-      background: linear-gradient(rgba(14, 3, 3, 0) 80%, #0e0303 100%);
       position: absolute;
       top: -1px;
-      pointer-events: none;
+      background: $shadow;
       transition: all 300ms ease-in-out;
+      pointer-events: none;
 
       &.top {
-        background: linear-gradient(
-          #0e0303 0%,
-          rgba(14, 3, 3, 0) 20%,
-          rgba(14, 3, 3, 0) 80%,
-          #0e0303 100%
-        );
+        background: $shadow-top;
       }
 
       &.end {
-        background: linear-gradient(#0e0303 0%, rgba(14, 3, 3, 0) 20%);
+        background: $shadow-end;
       }
     }
 
@@ -380,10 +386,8 @@ section {
 
 .events {
   .wrapper {
+    @include disp-flex(column, center, auto);
     grid-column: 1/5;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
 
     h2 {
       @include header2;
@@ -416,8 +420,7 @@ section {
 
 .media {
   .wrapper {
-    display: flex;
-    align-items: center;
+    @include disp-flex(auto, auto, center);
     grid-column: 1/5;
 
     ul {
@@ -433,41 +436,38 @@ section {
 }
 
 .rotated-text {
+  grid-column: 1/5;
+  margin-bottom: 112px;
   font-size: 56px;
   line-height: 56px;
   font-weight: 600;
-  grid-column: 1/5;
-  margin-bottom: 112px;
   white-space: nowrap;
 
   span {
-    color: $red-color;
+    color: $red;
   }
 }
 
 .profile-phone {
+  @include disp-flex(auto, center, center);
   width: 100%;
   height: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #0e0303;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 3;
+  background-color: $dark-brown;
   transition: all 300ms ease-in-out;
 
   .wrapper {
-    color: #c91919;
+    @include disp-flex(column, auto, auto);
+    color: $red;
     width: 90%;
     max-width: 500px;
     max-height: 85vh;
-    overflow-y: overlay;
     padding: 24px;
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
+    overflow-y: overlay;
+    background-color: $white;
 
     img {
       width: 100%;
@@ -475,8 +475,7 @@ section {
     }
 
     header {
-      display: flex;
-      justify-content: space-between;
+      @include disp-flex(auto, space-between, auto);
       .cross {
         font-size: 48px;
         line-height: 32px;
@@ -514,47 +513,43 @@ section {
     }
 
     &::-webkit-scrollbar-track {
-      background-color: rgb(197, 197, 197);
+      background-color: $light-grey;
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: rgb(172, 172, 172);
+      background-color: $grey;
     }
   }
 }
 
 .album-phone {
+  @include disp-flex(auto, center, center);
   width: 100%;
   height: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #0e0303;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 3;
+  background-color: $dark-brown;
   transition: all 300ms ease-in-out;
 
   .wrapper {
-    color: #c91919;
+    @include disp-flex(column, auto, auto);
+    color: $red;
     width: 90%;
     max-width: 500px;
     max-height: 85vh;
-    overflow-y: overlay;
     padding: 24px;
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
+    overflow-y: overlay;
+    background-color: $white;
 
     img {
       width: 100%;
       margin-block: 24px;
     }
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
+      @include disp-flex(auto, space-between, flex-end);
+
       p {
         display: block;
         font-size: 20px;
@@ -567,7 +562,6 @@ section {
         line-height: 28px;
         font-size: 48px;
         font-style: normal;
-
         cursor: pointer;
       }
     }
@@ -587,23 +581,23 @@ section {
 
     p.tracklist {
       @include main-text;
-      font-weight: 400;
       text-align: center;
+      font-weight: 400;
       margin-block: 12px;
     }
 
     ol {
       @include main-text;
-      line-height: 24px;
-      list-style: none;
       width: 100%;
+      list-style: none;
+      line-height: 24px;
+
       li {
         margin-bottom: 8px;
       }
 
       span {
         display: inline-block;
-
         width: 30px;
       }
     }
@@ -613,11 +607,11 @@ section {
     }
 
     &::-webkit-scrollbar-track {
-      background-color: rgb(197, 197, 197);
+      background-color: $light-grey;
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: rgb(172, 172, 172);
+      background-color: $grey;
     }
   }
 }
@@ -636,12 +630,12 @@ section {
   }
 
   &::-webkit-scrollbar-track {
-    background-color: #0e0303;
+    background-color: $dark-brown;
     border-radius: 10px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #0e0303;
+    background-color: $dark-brown;
     border-radius: 10px;
   }
 }
@@ -649,8 +643,8 @@ section {
 @media (min-width: 500px) {
   header {
     nav {
-      height: 56px;
       width: 48px;
+      height: 56px;
 
       .menu-btn {
         position: absolute;
@@ -683,7 +677,7 @@ section {
         }
       }
       &.visible {
-        background-color: #1b0e0e;
+        background-color: $brown;
         ul {
           opacity: 1;
         }
@@ -749,16 +743,16 @@ section {
   }
 
   .rotated-text {
+    grid-column: 1/3;
     font-size: 100px;
     line-height: 100px;
     font-weight: 600;
+    white-space: nowrap;
     transform-origin: top left;
     transform: rotateZ(90deg) translateY(-100px);
-    white-space: nowrap;
-    grid-column: 1/3;
 
     span {
-      color: $red-color;
+      color: $red;
     }
   }
 }
@@ -797,9 +791,9 @@ section {
     }
 
     .profile-wrapper {
-      display: block;
       grid-column: 3/13;
       align-self: center;
+      display: block;
       transition: all 300ms ease-in-out;
 
       .profile {
@@ -821,10 +815,7 @@ section {
         }
 
         .wrapper {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          justify-content: center;
+          @include disp-flex(column, center, flex-start);
 
           h2 {
             @include header2;
@@ -832,8 +823,8 @@ section {
           }
 
           ul {
-            width: 100%;
             display: block;
+            width: 100%;
             height: fit-content;
 
             li {
@@ -858,9 +849,8 @@ section {
         height: fit-content;
 
         ul {
+          @include disp-flex(auto, flex-end, auto);
           width: 100%;
-          display: flex;
-          justify-content: flex-end;
 
           li {
             margin-right: 32px;
@@ -879,8 +869,8 @@ section {
 
   .music {
     .album-info {
-      display: block;
       grid-column: 3/6;
+      display: block;
       width: 100%;
       transition: all 150ms ease-in;
 
@@ -906,13 +896,13 @@ section {
       }
 
       button {
-        width: 100%;
         @include notes-text;
+        width: 100%;
+        margin-block: 16px;
         text-decoration: underline;
         border: none;
         background: none;
-        color: #fff;
-        margin-block: 16px;
+        color: $white;
         transition: all 150ms ease-in;
       }
 
@@ -922,9 +912,9 @@ section {
 
       ol {
         @include main-text;
-        line-height: 24px;
         list-style: none;
         max-height: 200px;
+        line-height: 24px;
         overflow-y: scroll;
         transition: all 150ms ease-in-out;
 
@@ -941,24 +931,18 @@ section {
       .tracklist-shadow {
         width: calc(100% - 8px);
         height: 204px;
-        background: linear-gradient(rgba(14, 3, 3, 0) 80%, #0e0303 100%);
-
         position: absolute;
         top: -1px;
-        pointer-events: none;
+        background: $shadow;
         transition: all 150ms ease-in-out;
+        pointer-events: none;
 
         &.top {
-          background: linear-gradient(
-            #0e0303 0%,
-            rgba(14, 3, 3, 0) 20%,
-            rgba(14, 3, 3, 0) 80%,
-            #0e0303 100%
-          );
+          background: $shadow-top;
         }
 
         &.end {
-          background: linear-gradient(#0e0303 0%, rgba(14, 3, 3, 0) 20%);
+          background: $shadow-end;
         }
       }
     }
@@ -993,21 +977,21 @@ section {
   }
 
   .active {
-    color: $red-color;
+    color: $red;
   }
 }
 
 @media (hover: hover) {
   header {
     nav {
-      height: 56px;
-      width: 100%;
       flex-direction: row;
+      width: 100%;
+      height: 56px;
       opacity: 0;
-      background-color: #1b0e0e;
+      background-color: $brown;
 
       &.header {
-        background-color: rgba(43, 31, 31, 0.4);
+        background-color: $brown-transparent;
         opacity: 1;
       }
 
@@ -1029,21 +1013,21 @@ section {
     transition: all 150ms ease-in;
 
     &:hover {
-      color: $red-color;
+      color: $red;
     }
   }
 
   .scroll {
     &:hover {
       &::-webkit-scrollbar-track {
-        background-color: #1b0e0e;
+        background-color: $brown;
       }
 
       &::-webkit-scrollbar-thumb {
-        background-color: #2b1f1f;
+        background-color: $light-brown;
 
         &:hover {
-          background-color: #fff;
+          background-color: $white;
         }
       }
     }
@@ -1055,22 +1039,23 @@ section {
         transition: all 150ms ease-in;
 
         &:hover {
-          color: $red-color;
+          color: $red;
           cursor: pointer;
         }
       }
     }
     .profile-wrapper {
       .profile .cross:hover {
-        color: $red-color;
+        color: $red;
         cursor: pointer;
+        transition: all 150ms ease-in;
       }
 
       .profile-nav ul li {
         transition: all 150ms ease-in;
 
         &:hover {
-          color: $red-color;
+          color: $red;
           cursor: pointer;
         }
       }
@@ -1082,13 +1067,13 @@ section {
       transition: all 150ms ease-in;
 
       &:hover {
-        color: $red-color;
+        color: $red;
         cursor: pointer;
       }
     }
 
     .album-info button:hover {
-      color: $red-color;
+      color: $red;
       cursor: pointer;
     }
   }
