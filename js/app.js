@@ -347,7 +347,20 @@ const albums = {
   },
 };
 
-const albumInfo = document.querySelector("section.music .album-info");
+const body = document.querySelector("body");
+const main = document.querySelector("main");
+const footer = document.querySelector("footer");
+const header = document.querySelector("header");
+const headerNav = header.querySelector("nav");
+const headerNavLinks = header.querySelector("ul");
+const headerNavMenuBtn = header.querySelector(".menu-btn");
+const headerNavMenuIcon = headerNavMenuBtn.querySelector("i");
+const membersSection = document.querySelector("#members");
+const musicSection = document.querySelector("#music");
+
+const albumsList = musicSection.querySelector(".albums");
+const albumShadow = document.querySelector(".album-shadow");
+const albumInfo = musicSection.querySelector(".album-info");
 const albumInfoImg = albumInfo.querySelector("img");
 const albumInfoDate = albumInfo.querySelector("#release-date");
 const albumInfoLang = albumInfo.querySelector("#language");
@@ -355,14 +368,33 @@ const albumInfoTracklist = albumInfo.querySelector("#tracklist");
 const albumInfoTracklistBtn = albumInfo.querySelector("#tracklist-btn");
 const tracklistShadow = albumInfo.querySelector(".tracklist-shadow");
 
-albumInfoTracklistBtn.addEventListener("click", () => {
-  albumInfoTracklist.classList.toggle("hidden");
-  if (!albumInfoTracklist.classList.contains("hidden")) {
-    albumInfoTracklistBtn.innerText = `Hide tracklist`;
-    observeTracklist();
-  } else {
-    albumInfoTracklistBtn.innerText = `Show tracklist`;
-  }
+const membersList = membersSection.querySelector(".wrapper");
+const membersListNames = membersList.querySelectorAll("h2");
+const memberProfile = membersSection.querySelector(".profile-wrapper");
+const memberProfileName = memberProfile.querySelector("#profile-name");
+const memberProfileImg = memberProfile.querySelector("#profile-img");
+const memberProfileCloseBtn = memberProfile.querySelector("#prof-close-btn");
+const memberProfileBirthName = memberProfile.querySelector(
+  "#profile-birth-name"
+);
+const memberProfileBirthday = memberProfile.querySelector("#profile-birthday");
+const memberProfileZodiac = memberProfile.querySelector("#profile-zodiac");
+const memberProfilePosition = memberProfile.querySelector("#profile-position");
+const memberProfileMbti = memberProfile.querySelector("#profile-mbti");
+const memberProfileEmoji = memberProfile.querySelector("#profile-emoji");
+const memberProfileNavNames = memberProfile.querySelectorAll(".profile-nav li");
+
+let albumsArr = ``;
+for (const property in albums) {
+  albumsArr += `<li data-albums>
+  <span class="album-title">${property}</span>
+  <span class="album-type">${albums[property].albumType}</span>
+  </li>`;
+}
+albumsList.innerHTML = albumsArr;
+const dataAlbums = albumsList.querySelectorAll(`[data-albums]`);
+dataAlbums.forEach((li) => {
+  li.addEventListener("click", showAlbumInfo);
 });
 
 function showAlbumInfo(e) {
@@ -389,28 +421,24 @@ function showAlbumInfo(e) {
       if (albumInfoTracklist.clientHeight < 200) {
         tracklistShadow.classList.add("hidden");
       }
-
       albumInfo.classList.remove("hidden");
     }, 200);
   } else {
-    const footer = document.querySelector("footer");
-
     let albumPhoneCard = document.createElement("div");
     albumPhoneCard.classList.add("album-phone", "hidden");
-
-    console.log(e.target);
     let name = e.target.querySelector(".album-title").innerText;
     let tracks = ``;
 
     albums[name].tracklist.forEach((track, i) => {
       tracks += `<li><span>${i + 1}.</span> ${track}</li>`;
     });
+
     albumPhoneCard.innerHTML = `
-    <div class="album-phone">
+      <div class="album-phone">
         <div class="wrapper">
           <header>
               <p class="album-type">${albums[name].albumType}</p>
-            <p class="cross" id="prof-close-btn">×</p>
+            <p class="cross">×</p>
           </header>
           <h3>${name} </h3>
           <img src="${albums[name].img}" alt="" />
@@ -432,12 +460,19 @@ function showAlbumInfo(e) {
     `;
 
     footer.append(albumPhoneCard);
+
     setTimeout(() => {
       albumPhoneCard.classList.remove("hidden");
+      body.style.overflow = `hidden`;
+      main.style.overflow = `hidden`;
     }, 50);
+
     let closeBtn = albumPhoneCard.querySelector(".cross");
+
     closeBtn.addEventListener("click", () => {
       albumPhoneCard.classList.add("hidden");
+      body.removeAttribute("style");
+      main.removeAttribute("style");
 
       setTimeout(() => {
         albumPhoneCard.remove();
@@ -447,10 +482,10 @@ function showAlbumInfo(e) {
 }
 
 function observeTracklist() {
-  let tracklistStart = albumInfoTracklist.firstElementChild;
-  let tracklistEnd = albumInfoTracklist.lastElementChild;
+  let albumsTracklistStart = albumInfoTracklist.firstElementChild;
+  let albumsTracklistEnd = albumInfoTracklist.lastElementChild;
 
-  let startTrackObserver = new IntersectionObserver(
+  let albumsTracklistStartObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -467,7 +502,7 @@ function observeTracklist() {
     }
   );
 
-  let endTrackObserver = new IntersectionObserver(
+  let albumsTracklistEndObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -484,131 +519,33 @@ function observeTracklist() {
     }
   );
 
-  startTrackObserver.observe(tracklistStart);
-  endTrackObserver.observe(tracklistEnd);
+  albumsTracklistStartObserver.observe(albumsTracklistStart);
+  albumsTracklistEndObserver.observe(albumsTracklistEnd);
 }
 
-let albumsArr = ``;
+function showProfile(e) {
+  if (innerWidth > 1000) {
+    fillProfile(e.target.innerText);
 
-for (const property in albums) {
-  albumsArr += `<li data-albums>
-  <span class="album-title">${property}</span>
-  <span class="album-type">${albums[property].albumType}</span>
-  </li>`;
-}
-
-const albumsList = document.getElementById("albums");
-
-albumsList.innerHTML = albumsArr;
-
-const dataAlbums = albumsList.querySelectorAll(`[data-albums]`);
-
-dataAlbums.forEach((li) => {
-  li.addEventListener("click", showAlbumInfo);
-});
-
-let list = document.querySelector("ul.albums");
-let listStart = list.firstElementChild;
-let listEnd = list.lastElementChild;
-
-let albumShadow = document.querySelector(".album-shadow");
-
-let startObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        albumShadow.classList.remove("end");
-        albumShadow.classList.remove("top");
-      } else {
-        albumShadow.classList.add("top");
-        albumShadow.classList.remove("end");
-      }
-    });
-  },
-  {
-    threshold: 0.9,
-  }
-);
-
-let endObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        albumShadow.classList.add("end");
-        albumShadow.classList.remove("top");
-      } else {
-        albumShadow.classList.remove("end");
-        albumShadow.classList.add("top");
-      }
-    });
-  },
-  {
-    threshold: 1,
-  }
-);
-
-startObserver.observe(listStart);
-endObserver.observe(listEnd);
-
-const membersWrapper = document.querySelector(".members .wrapper");
-const profileWrapper = document.querySelector(".members .profile-wrapper");
-const profileWrapperName = profileWrapper.querySelector("#profile-name");
-const profileWrapperImg = profileWrapper.querySelector("#profile-img");
-const profileWrapperCloseBtn = profileWrapper.querySelector("#prof-close-btn");
-const profileWrapperBirthName = profileWrapper.querySelector(
-  "#profile-birth-name"
-);
-const profileWrapperBirthday =
-  profileWrapper.querySelector("#profile-birthday");
-const profileWrapperZodiac = profileWrapper.querySelector("#profile-zodiac");
-const profileWrapperPosition =
-  profileWrapper.querySelector("#profile-position");
-const profileWrapperMbti = profileWrapper.querySelector("#profile-mbti");
-const profileWrapperEmoji = profileWrapper.querySelector("#profile-emoji");
-const profileWrapperNav = profileWrapper.querySelectorAll(".profile-nav li");
-
-const membersWrapperNames = membersWrapper.querySelectorAll("h2");
-
-profileWrapperCloseBtn.addEventListener("click", () => {
-  profileWrapper.classList.add("hidden");
-
-  setTimeout(() => {
-    membersWrapper.classList.remove("d-hidden");
-    profileWrapper.classList.add("d-hidden");
+    membersList.classList.add("hidden");
 
     setTimeout(() => {
-      membersWrapper.classList.remove("hidden");
-    }, 50);
-  }, 150);
-});
-
-membersWrapperNames.forEach((name) => {
-  name.addEventListener("click", (e) => {
-    if (innerWidth > 1000) {
-      fillProfile(e.target.innerText);
-
-      membersWrapper.classList.add("hidden");
+      membersList.classList.add("d-hidden");
+      memberProfile.classList.remove("d-hidden");
 
       setTimeout(() => {
-        membersWrapper.classList.add("d-hidden");
-        profileWrapper.classList.remove("d-hidden");
+        memberProfile.classList.remove("hidden");
+      }, 50);
+    }, 150);
+  } else {
+    let memberPhoneCard = document.createElement("div");
+    memberPhoneCard.classList.add("profile-phone", "hidden");
 
-        setTimeout(() => {
-          profileWrapper.classList.remove("hidden");
-        }, 50);
-      }, 150);
-    } else {
-      const footer = document.querySelector("footer");
-
-      let memberPhoneCard = document.createElement("div");
-      memberPhoneCard.classList.add("profile-phone", "hidden");
-
-      memberPhoneCard.innerHTML = `
-   
+    memberPhoneCard.innerHTML = `
           <div class="wrapper">
             <header>
               <h2 id="profile-name">${e.target.innerText}</h2>
-              <p class="cross" id="prof-close-btn">×</p>
+              <p class="cross">×</p>
             </header>
             <img src="${
               membersProfile[e.target.innerText].img
@@ -654,51 +591,44 @@ membersWrapperNames.forEach((name) => {
           </div>
         
 `;
-      footer.append(memberPhoneCard);
-      setTimeout(() => {
-        memberPhoneCard.classList.remove("hidden");
-      }, 50);
-      let closeBtn = memberPhoneCard.querySelector(".cross");
-      closeBtn.addEventListener("click", () => {
-        memberPhoneCard.classList.add("hidden");
+    footer.append(memberPhoneCard);
 
-        setTimeout(() => {
-          memberPhoneCard.remove();
-        }, 300);
-      });
-    }
-  });
-});
+    setTimeout(() => {
+      memberPhoneCard.classList.remove("hidden");
+      body.style.overflow = `hidden`;
+      main.style.overflow = `hidden`;
+    }, 50);
+
+    let closeBtn = memberPhoneCard.querySelector(".cross");
+
+    closeBtn.addEventListener("click", () => {
+      memberPhoneCard.classList.add("hidden");
+      body.removeAttribute("style");
+      main.removeAttribute("style");
+      setTimeout(() => {
+        memberPhoneCard.remove();
+      }, 300);
+    });
+  }
+}
 
 function fillProfile(membName) {
-  profileWrapperName.innerText = membName;
-  profileWrapperImg.setAttribute("src", membersProfile[membName].img);
-  profileWrapperBirthName.innerText = membersProfile[membName].birthname;
-  profileWrapperBirthday.innerText = membersProfile[membName].birthday;
-  profileWrapperZodiac.innerText = membersProfile[membName].zodiac;
-  profileWrapperPosition.innerText = membersProfile[membName].position;
-  profileWrapperMbti.innerText = membersProfile[membName].mbti;
-  profileWrapperEmoji.innerText = membersProfile[membName].emoji;
-  clearActive(profileWrapperNav);
+  memberProfileName.innerText = membName;
+  memberProfileImg.setAttribute("src", membersProfile[membName].img);
+  memberProfileBirthName.innerText = membersProfile[membName].birthname;
+  memberProfileBirthday.innerText = membersProfile[membName].birthday;
+  memberProfileZodiac.innerText = membersProfile[membName].zodiac;
+  memberProfilePosition.innerText = membersProfile[membName].position;
+  memberProfileMbti.innerText = membersProfile[membName].mbti;
+  memberProfileEmoji.innerText = membersProfile[membName].emoji;
+  clearActive(memberProfileNavNames);
 
-  profileWrapperNav.forEach((name) => {
-    console.log(name);
+  memberProfileNavNames.forEach((name) => {
     if (name.innerText == membName) {
       name.classList.add("active");
     }
   });
 }
-
-profileWrapperNav.forEach((name) => {
-  name.addEventListener("click", (e) => {
-    profileWrapper.classList.add("hidden");
-
-    setTimeout(() => {
-      fillProfile(e.target.innerText);
-      profileWrapper.classList.remove("hidden");
-    }, 300);
-  });
-});
 
 function clearActive(clearArr) {
   clearArr.forEach((name) => {
@@ -706,9 +636,78 @@ function clearActive(clearArr) {
   });
 }
 
-const header = document.querySelector("header");
-const headerNav = header.querySelector("nav");
-const menuBtn = document.querySelector(".menu-btn");
+membersListNames.forEach((name) => {
+  name.addEventListener("click", (e) => {
+    showProfile(e);
+  });
+});
+
+memberProfileNavNames.forEach((name) => {
+  name.addEventListener("click", (e) => {
+    memberProfile.classList.add("hidden");
+
+    setTimeout(() => {
+      fillProfile(e.target.innerText);
+      memberProfile.classList.remove("hidden");
+    }, 300);
+  });
+});
+
+memberProfileCloseBtn.addEventListener("click", () => {
+  memberProfile.classList.add("hidden");
+
+  setTimeout(() => {
+    membersList.classList.remove("d-hidden");
+    memberProfile.classList.add("d-hidden");
+
+    setTimeout(() => {
+      membersList.classList.remove("hidden");
+    }, 50);
+  }, 150);
+});
+
+albumInfoTracklistBtn.addEventListener("click", () => {
+  albumInfoTracklist.classList.toggle("hidden");
+  if (!albumInfoTracklist.classList.contains("hidden")) {
+    albumInfoTracklistBtn.innerText = `Hide tracklist`;
+    observeTracklist();
+  } else {
+    albumInfoTracklistBtn.innerText = `Show tracklist`;
+  }
+});
+
+headerNavMenuBtn.addEventListener("click", () => {
+  if (innerWidth > 500) {
+    if (headerNav.classList.contains("header")) {
+      return;
+    }
+  }
+
+  headerNavMenuIcon.classList.toggle("fa-bars");
+  headerNavMenuIcon.classList.toggle("fa-xmark");
+
+  if (headerNav.classList.contains("active")) {
+    headerNav.classList.remove("visible");
+    setTimeout(() => {
+      headerNav.classList.remove("active");
+    }, 200);
+  } else {
+    headerNav.classList.add("active");
+    setTimeout(() => {
+      headerNav.classList.add("visible");
+    }, 50);
+  }
+});
+
+headerNavLinks.addEventListener("click", () => {
+  headerNav.classList.remove("visible");
+  headerNavMenuIcon.classList.add("fa-bars");
+  headerNavMenuIcon.classList.remove("fa-xmark");
+
+  setTimeout(() => {
+    headerNav.classList.remove("active");
+  }, 200);
+});
 
 let headerObserver = new IntersectionObserver(
   (entries) => {
@@ -716,12 +715,12 @@ let headerObserver = new IntersectionObserver(
       if (entry.isIntersecting) {
         headerNav.classList.add("header");
         if (innerWidth > 500) {
-          menuBtn.classList.add("hidden");
+          headerNavMenuBtn.classList.add("hidden");
         }
       } else {
         headerNav.classList.remove("header");
         if (innerWidth > 500) {
-          menuBtn.classList.remove("hidden");
+          headerNavMenuBtn.classList.remove("hidden");
         }
       }
     });
@@ -731,24 +730,21 @@ let headerObserver = new IntersectionObserver(
 
 headerObserver.observe(header);
 
-const members = document.querySelector("#members");
-
-let membersObserver = new IntersectionObserver(
+let membersSectionObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) {
-        profileWrapper.classList.add("hidden", "d-hidden");
-        membersWrapper.classList.remove("hidden", "d-hidden");
+        memberProfile.classList.add("hidden", "d-hidden");
+        membersList.classList.remove("hidden", "d-hidden");
       }
     });
   },
   { threshold: 0.1 }
 );
 
-membersObserver.observe(members);
-const music = document.querySelector("#music");
+membersSectionObserver.observe(membersSection);
 
-let musicObserver = new IntersectionObserver(
+let musicSectionObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -763,42 +759,44 @@ let musicObserver = new IntersectionObserver(
   { threshold: 0.1 }
 );
 
-musicObserver.observe(music);
+musicSectionObserver.observe(musicSection);
 
-const nav = document.querySelector("header nav");
-const navLinks = document.querySelector("header nav ul");
-const menuIcon = menuBtn.querySelector("i");
+let albumsListStart = albumsList.firstElementChild;
+let albumsListEnd = albumsList.lastElementChild;
 
-menuBtn.addEventListener("click", () => {
-  if (innerWidth > 500) {
-    if (nav.classList.contains("header")) {
-      return;
-    }
+let albumsListStartObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        albumShadow.classList.remove("end");
+        albumShadow.classList.remove("top");
+      } else {
+        albumShadow.classList.add("top");
+        albumShadow.classList.remove("end");
+      }
+    });
+  },
+  {
+    threshold: 0.9,
   }
+);
 
-  menuIcon.classList.toggle("fa-bars");
-  menuIcon.classList.toggle("fa-xmark");
-
-  if (nav.classList.contains("active")) {
-    nav.classList.remove("visible");
-
-    setTimeout(() => {
-      nav.classList.remove("active");
-    }, 200);
-  } else {
-    nav.classList.add("active");
-    setTimeout(() => {
-      nav.classList.add("visible");
-    }, 50);
+let albumsListEndObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        albumShadow.classList.add("end");
+        albumShadow.classList.remove("top");
+      } else {
+        albumShadow.classList.remove("end");
+        albumShadow.classList.add("top");
+      }
+    });
+  },
+  {
+    threshold: 1,
   }
-});
+);
 
-navLinks.addEventListener("click", () => {
-  nav.classList.remove("visible");
-  menuIcon.classList.add("fa-bars");
-  menuIcon.classList.remove("fa-xmark");
-
-  setTimeout(() => {
-    nav.classList.remove("active");
-  }, 200);
-});
+albumsListStartObserver.observe(albumsList);
+albumsListEndObserver.observe(albumsList);
