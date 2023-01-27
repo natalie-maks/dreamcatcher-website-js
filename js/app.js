@@ -797,3 +797,7 @@ let albumsListEndObserver = new IntersectionObserver(
 
 albumsListStartObserver.observe(albumsListStart);
 albumsListEndObserver.observe(albumsListEnd);
+
+let width = document.querySelector("#width");
+
+width.innerHTML = `${window.innerWidth}`;
