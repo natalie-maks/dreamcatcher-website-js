@@ -146,6 +146,9 @@ header nav ul li {
   font-weight: 500;
   color: rgb(252, 251, 246);
 }
+header nav ul li a {
+  color: green;
+}
 header nav.visible {
   background-color: #1b0e0e;
 }
