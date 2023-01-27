@@ -635,6 +635,7 @@ section {
   }
   header nav ul li a {
     font-size: 20px;
+    color: yellow;
   }
   header nav.active ul {
     display: flex;
