@@ -139,27 +139,6 @@ header {
     opacity: 1;
     transition: all 200ms ease-in;
 
-    &.header {
-      width: 100%;
-      background-color: $brown-transparent;
-
-      ul {
-        display: none;
-      }
-    }
-
-    &.active {
-      width: 100%;
-      ul {
-        display: block;
-        opacity: 0;
-
-        li {
-          display: block;
-        }
-      }
-    }
-
     .menu-btn {
       display: block;
       align-self: flex-end;
@@ -186,6 +165,27 @@ header {
         line-height: 24px;
         font-weight: 500;
         color: $white;
+      }
+    }
+
+    &.header {
+      width: 100%;
+      background-color: $brown-transparent;
+
+      ul {
+        display: none;
+      }
+    }
+
+    &.active {
+      width: 100%;
+      ul {
+        display: block;
+        opacity: 0;
+
+        li {
+          display: block;
+        }
       }
     }
 
