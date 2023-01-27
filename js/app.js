@@ -714,12 +714,12 @@ let headerObserver = new IntersectionObserver(
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         headerNav.classList.add("header");
-        if (innerWidth > 700) {
+        if (window.innerWidth > 700) {
           headerNavMenuBtn.classList.add("hidden");
         }
       } else {
         headerNav.classList.remove("header");
-        if (innerWidth > 700) {
+        if (window.innerWidth > 700) {
           headerNavMenuBtn.classList.remove("hidden");
         }
       }
