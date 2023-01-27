@@ -614,7 +614,7 @@ section {
   border-radius: 10px;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 800px) {
   header nav {
     width: 48px;
     height: 56px;
@@ -710,7 +710,7 @@ section {
     color: #c91919;
   }
 }
-@media (min-width: 1000px) {
+@media (min-width: 2000px) {
   section {
     max-width: 1200px;
   }
