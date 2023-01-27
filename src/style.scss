@@ -142,6 +142,10 @@ header {
     &.header {
       width: 100%;
       background-color: $brown-transparent;
+
+      ul {
+        display: none;
+      }
     }
 
     &.active {
@@ -182,10 +186,6 @@ header {
         line-height: 24px;
         font-weight: 500;
         color: $white;
-
-        a {
-          color: green;
-        }
       }
     }
 
@@ -670,7 +670,6 @@ section {
 
           a {
             font-size: 20px;
-            color: yellow;
           }
         }
       }

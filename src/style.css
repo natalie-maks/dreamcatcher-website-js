@@ -110,6 +110,9 @@ header nav.header {
   width: 100%;
   background-color: rgba(43, 31, 31, 0.4);
 }
+header nav.header ul {
+  display: none;
+}
 header nav.active {
   width: 100%;
 }
@@ -145,9 +148,6 @@ header nav ul li {
   line-height: 24px;
   font-weight: 500;
   color: rgb(252, 251, 246);
-}
-header nav ul li a {
-  color: green;
 }
 header nav.visible {
   background-color: #1b0e0e;
@@ -638,7 +638,6 @@ section {
   }
   header nav ul li a {
     font-size: 20px;
-    color: yellow;
   }
   header nav.active ul {
     display: flex;
