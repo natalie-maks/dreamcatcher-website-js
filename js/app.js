@@ -747,10 +747,7 @@ membersSectionObserver.observe(membersSection);
 let musicSectionObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        console.log("yes");
-      } else {
-        console.log("no");
+      if (!entry.isIntersecting) {
         clearActive(dataAlbums);
         albumInfo.classList.add("hidden");
       }
