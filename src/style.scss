@@ -6,8 +6,8 @@ $light-brown: #2b1f1f;
 $brown-transparent: rgba(43, 31, 31, 0.4);
 $light-grey: rgb(197, 197, 197);
 $grey: rgb(172, 172, 172);
-$shadow: linear-gradient(rgba(14, 3, 3, 0) 80%, #0e0303 100%);
-$shadow-top: linear-gradient(
+$shadow-top: linear-gradient(rgba(14, 3, 3, 0) 80%, #0e0303 100%);
+$shadow: linear-gradient(
   #0e0303 0%,
   rgba(14, 3, 3, 0) 20%,
   rgba(14, 3, 3, 0) 80%,
@@ -981,7 +981,7 @@ section {
   }
 }
 
-@media (min-width: 650px) and (max-height: 550px) {
+@media (min-width: 650px) and (max-height: 700px) {
   .about p {
     margin-top: 92px;
   }

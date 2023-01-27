@@ -398,7 +398,7 @@ dataAlbums.forEach((li) => {
 });
 
 function showAlbumInfo(e) {
-  if (innerWidth > 1000) {
+  if (innerWidth > 1200) {
     clearActive(dataAlbums);
     e.target.classList.add("active");
     let name = e.target.querySelector(".album-title").innerText;
@@ -489,11 +489,11 @@ function observeTracklist() {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
+          tracklistShadow.classList.add("top");
           tracklistShadow.classList.remove("end");
-          tracklistShadow.classList.remove("top");
         } else {
           tracklistShadow.classList.remove("end");
-          tracklistShadow.classList.add("top");
+          tracklistShadow.classList.remove("top");
         }
       });
     },
@@ -510,12 +510,12 @@ function observeTracklist() {
           tracklistShadow.classList.remove("top");
         } else {
           tracklistShadow.classList.remove("end");
-          tracklistShadow.classList.add("top");
+          tracklistShadow.classList.remove("top");
         }
       });
     },
     {
-      threshold: 0.95,
+      threshold: 0.9,
     }
   );
 
@@ -524,7 +524,7 @@ function observeTracklist() {
 }
 
 function showProfile(e) {
-  if (innerWidth > 1000) {
+  if (innerWidth > 1200) {
     fillProfile(e.target.innerText);
 
     membersList.classList.add("hidden");
@@ -677,7 +677,7 @@ albumInfoTracklistBtn.addEventListener("click", () => {
 });
 
 headerNavMenuBtn.addEventListener("click", () => {
-  if (innerWidth > 500) {
+  if (innerWidth > 700) {
     if (headerNav.classList.contains("header")) {
       return;
     }
@@ -714,12 +714,12 @@ let headerObserver = new IntersectionObserver(
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         headerNav.classList.add("header");
-        if (innerWidth > 500) {
+        if (innerWidth > 700) {
           headerNavMenuBtn.classList.add("hidden");
         }
       } else {
         headerNav.classList.remove("header");
-        if (innerWidth > 500) {
+        if (innerWidth > 700) {
           headerNavMenuBtn.classList.remove("hidden");
         }
       }
@@ -765,10 +765,10 @@ let albumsListStartObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        albumShadow.classList.remove("end");
-        albumShadow.classList.remove("top");
-      } else {
         albumShadow.classList.add("top");
+        albumShadow.classList.remove("end");
+      } else {
+        albumShadow.classList.remove("top");
         albumShadow.classList.remove("end");
       }
     });
@@ -786,14 +786,14 @@ let albumsListEndObserver = new IntersectionObserver(
         albumShadow.classList.remove("top");
       } else {
         albumShadow.classList.remove("end");
-        albumShadow.classList.add("top");
+        albumShadow.classList.remove("top");
       }
     });
   },
   {
-    threshold: 1,
+    threshold: 0.9,
   }
 );
 
-albumsListStartObserver.observe(albumsList);
-albumsListEndObserver.observe(albumsList);
+albumsListStartObserver.observe(albumsListStart);
+albumsListEndObserver.observe(albumsListEnd);
