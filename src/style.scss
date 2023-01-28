@@ -171,14 +171,6 @@ header {
     &.header {
       width: 100%;
       background-color: $brown-transparent;
-
-      ul {
-        display: none;
-      }
-
-      .menu-btn {
-        display: block;
-      }
     }
 
     &.active {

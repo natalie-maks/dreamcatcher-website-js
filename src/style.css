@@ -136,12 +136,6 @@ header nav.header {
   width: 100%;
   background-color: rgba(43, 31, 31, 0.4);
 }
-header nav.header ul {
-  display: none;
-}
-header nav.header .menu-btn {
-  display: block;
-}
 header nav.active {
   width: 100%;
 }
