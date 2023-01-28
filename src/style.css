@@ -130,7 +130,9 @@ header nav ul li {
   font-size: 24px;
   line-height: 24px;
   font-weight: 500;
-  color: rgb(252, 251, 246);
+}
+header nav ul li a {
+  color: green;
 }
 header nav.header {
   width: 100%;
@@ -635,6 +637,7 @@ section {
   }
   header nav ul li a {
     font-size: 20px;
+    color: blue;
   }
   header nav.active ul {
     display: flex;
