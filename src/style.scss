@@ -146,9 +146,10 @@ header {
       font-size: 24px;
       line-height: 56px;
       text-align: right;
-      background: none;
+      background: red;
       color: $white;
       border: none;
+      width: 300px;
     }
 
     ul {
@@ -174,6 +175,10 @@ header {
 
       ul {
         display: none;
+      }
+
+      .menu-btn {
+        display: block;
       }
     }
 

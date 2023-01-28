@@ -113,9 +113,10 @@ header nav .menu-btn {
   font-size: 24px;
   line-height: 56px;
   text-align: right;
-  background: none;
+  background: red;
   color: rgb(252, 251, 246);
   border: none;
+  width: 300px;
 }
 header nav ul {
   display: none;
@@ -138,6 +139,9 @@ header nav.header {
 }
 header nav.header ul {
   display: none;
+}
+header nav.header .menu-btn {
+  display: block;
 }
 header nav.active {
   width: 100%;
