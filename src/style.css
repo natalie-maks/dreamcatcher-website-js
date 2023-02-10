@@ -40,23 +40,12 @@ div.red-line p {
 }
 div.red-line .line {
   display: inline-block;
-  -webkit-animation: scrolling-left1 60s linear infinite;
-          animation: scrolling-left1 60s linear infinite;
+  animation: scrolling-left1 60s linear infinite;
 }
 div.red-line .line2 {
   display: inline-block;
-  -webkit-animation: scrolling-left2 60s linear infinite;
-          animation: scrolling-left2 60s linear infinite;
-  -webkit-animation-delay: -30s;
-          animation-delay: -30s;
-}
-@-webkit-keyframes scrolling-left1 {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+  animation: scrolling-left2 60s linear infinite;
+  animation-delay: -30s;
 }
 @keyframes scrolling-left1 {
   0% {
@@ -64,14 +53,6 @@ div.red-line .line2 {
   }
   100% {
     transform: translateX(-100%);
-  }
-}
-@-webkit-keyframes scrolling-left2 {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-200%);
   }
 }
 @keyframes scrolling-left2 {
@@ -88,7 +69,6 @@ div.red-line span.item {
 
 header {
   width: 100%;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
 }
@@ -243,12 +223,10 @@ section {
 .members .wrapper ul {
   display: block;
   width: 100%;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
 }
 .members .wrapper ul li {
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
 }
@@ -391,7 +369,6 @@ section {
   line-height: 32px;
   font-weight: 400;
   width: 100%;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
 }
@@ -751,7 +728,6 @@ section {
     grid-template-columns: repeat(10, 1fr);
     -moz-column-gap: 20px;
          column-gap: 20px;
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     position: relative;
@@ -777,12 +753,11 @@ section {
     font-size: 32px;
     line-height: 32px;
     font-weight: 400;
-    margin-bottom: 36px;
+    margin-bottom: 40px;
   }
   .members .profile-wrapper .profile .wrapper ul {
     display: block;
     width: 100%;
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
   }
@@ -807,7 +782,6 @@ section {
   }
   .members .profile-wrapper .profile-nav {
     margin-top: 80px;
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
   }
@@ -820,7 +794,7 @@ section {
   }
   .members .profile-wrapper .profile-nav ul li {
     margin-right: 32px;
-    font-size: 24px;
+    font-size: 28px;
     line-height: 24px;
     font-weight: 500;
   }
@@ -922,6 +896,11 @@ section {
   }
   .active {
     color: #c91919;
+  }
+}
+@media (min-width: 1600px) {
+  section {
+    max-width: 1400px;
   }
 }
 @media (min-width: 650px) and (max-height: 650px) {

@@ -5,7 +5,7 @@ const membersProfile = {
     zodiac: "Taurus",
     position: "Leader, Lead Vocalist, Lead Dancer, Visual",
     mbti: "ENFP",
-    emoji: "🐰",
+
     img: "/media/profile-pic/jiu.png",
   },
   SUA: {
@@ -14,7 +14,7 @@ const membersProfile = {
     zodiac: "Leo",
     position: "Main Dancer, Sub Vocalist, Lead Rapper",
     mbti: "ESFJ",
-    emoji: "🐥",
+
     img: "/media/profile-pic/sua.png",
   },
   SIYEON: {
@@ -23,7 +23,7 @@ const membersProfile = {
     zodiac: "Libra",
     position: "Main Vocalist",
     mbti: "ENTP",
-    emoji: "🐺",
+
     img: "/media/profile-pic/siyeon.png",
   },
   HANDONG: {
@@ -32,7 +32,7 @@ const membersProfile = {
     zodiac: "Aries",
     position: "Sub Vocalist",
     mbti: "ISFP",
-    emoji: "🐱",
+
     img: "/media/profile-pic/handong.png",
   },
   YOOHYEON: {
@@ -41,7 +41,7 @@ const membersProfile = {
     zodiac: "Capricorn",
     position: "Lead Vocalist",
     mbti: "ENFJ",
-    emoji: "🐶",
+
     img: "/media/profile-pic/yoohyeon.png",
   },
   DAMI: {
@@ -50,7 +50,7 @@ const membersProfile = {
     zodiac: "Pisces",
     position: "Main Rapper, Lead Dancer, Sub Vocalist",
     mbti: "INFJ",
-    emoji: "🐼",
+
     img: "/media/profile-pic/dami.png",
   },
   GAHYEON: {
@@ -59,7 +59,7 @@ const membersProfile = {
     zodiac: "Aquarius",
     position: "Lead Rapper, Sub Vocalist, Maknae",
     mbti: "ENFP",
-    emoji: "🦊",
+
     img: "/media/profile-pic/gahyeon.png",
   },
 };
@@ -381,7 +381,6 @@ const memberProfileBirthday = memberProfile.querySelector("#profile-birthday");
 const memberProfileZodiac = memberProfile.querySelector("#profile-zodiac");
 const memberProfilePosition = memberProfile.querySelector("#profile-position");
 const memberProfileMbti = memberProfile.querySelector("#profile-mbti");
-const memberProfileEmoji = memberProfile.querySelector("#profile-emoji");
 const memberProfileNavNames = memberProfile.querySelectorAll(".profile-nav li");
 
 let albumsArr = ``;
@@ -581,12 +580,6 @@ function showProfile(e) {
                   membersProfile[e.target.innerText].mbti
                 }</span>
               </li>
-              <li>
-                <span class="desc">Animal Emoji:</span>
-                <span id="profile-emoji">${
-                  membersProfile[e.target.innerText].emoji
-                }</span>
-              </li>
             </ul>
           </div>
         
@@ -620,7 +613,6 @@ function fillProfile(membName) {
   memberProfileZodiac.innerText = membersProfile[membName].zodiac;
   memberProfilePosition.innerText = membersProfile[membName].position;
   memberProfileMbti.innerText = membersProfile[membName].mbti;
-  memberProfileEmoji.innerText = membersProfile[membName].emoji;
   clearActive(memberProfileNavNames);
 
   memberProfileNavNames.forEach((name) => {

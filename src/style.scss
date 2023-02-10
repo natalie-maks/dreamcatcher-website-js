@@ -817,7 +817,7 @@ section {
 
           h2 {
             @include header2;
-            margin-bottom: 36px;
+            margin-bottom: 40px;
           }
 
           ul {
@@ -852,7 +852,7 @@ section {
 
           li {
             margin-right: 32px;
-            font-size: 24px;
+            font-size: 28px;
             line-height: 24px;
             font-weight: 500;
 
@@ -976,6 +976,12 @@ section {
 
   .active {
     color: $red;
+  }
+}
+
+@media (min-width: 1600px) {
+  section {
+    max-width: 1400px;
   }
 }
 
