@@ -5,7 +5,6 @@ const membersProfile = {
     zodiac: "Taurus",
     position: "Leader, Lead Vocalist, Lead Dancer, Visual",
     mbti: "ENFP",
-
     img: "/media/profile-pic/jiu.png",
   },
   SUA: {
@@ -14,7 +13,6 @@ const membersProfile = {
     zodiac: "Leo",
     position: "Main Dancer, Sub Vocalist, Lead Rapper",
     mbti: "ESFJ",
-
     img: "/media/profile-pic/sua.png",
   },
   SIYEON: {
@@ -23,7 +21,6 @@ const membersProfile = {
     zodiac: "Libra",
     position: "Main Vocalist",
     mbti: "ENTP",
-
     img: "/media/profile-pic/siyeon.png",
   },
   HANDONG: {
@@ -32,7 +29,6 @@ const membersProfile = {
     zodiac: "Aries",
     position: "Sub Vocalist",
     mbti: "ISFP",
-
     img: "/media/profile-pic/handong.png",
   },
   YOOHYEON: {
@@ -41,7 +37,6 @@ const membersProfile = {
     zodiac: "Capricorn",
     position: "Lead Vocalist",
     mbti: "ENFJ",
-
     img: "/media/profile-pic/yoohyeon.png",
   },
   DAMI: {
@@ -50,7 +45,6 @@ const membersProfile = {
     zodiac: "Pisces",
     position: "Main Rapper, Lead Dancer, Sub Vocalist",
     mbti: "INFJ",
-
     img: "/media/profile-pic/dami.png",
   },
   GAHYEON: {
@@ -59,7 +53,6 @@ const membersProfile = {
     zodiac: "Aquarius",
     position: "Lead Rapper, Sub Vocalist, Maknae",
     mbti: "ENFP",
-
     img: "/media/profile-pic/gahyeon.png",
   },
 };

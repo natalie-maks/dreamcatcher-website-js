@@ -61,6 +61,10 @@ $shadow-end: linear-gradient(#0e0303 0%, rgba(14, 3, 3, 0) 20%);
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   width: 100%;
   background-color: $dark-brown;
