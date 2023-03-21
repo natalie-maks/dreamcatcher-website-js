@@ -413,7 +413,11 @@ function showAlbumInfo(e) {
       if (albumInfoTracklist.clientHeight < 200) {
         tracklistShadow.classList.add("hidden");
       }
-      albumInfo.classList.remove("hidden");
+
+      albumInfoImg.onload = function () {
+        console.log(`album loaded`);
+        albumInfo.classList.remove("hidden");
+      };
     }, 200);
   } else {
     let albumPhoneCard = document.createElement("div");
@@ -453,11 +457,14 @@ function showAlbumInfo(e) {
 
     footer.append(albumPhoneCard);
 
-    setTimeout(() => {
-      albumPhoneCard.classList.remove("hidden");
-      body.style.overflow = `hidden`;
-      main.style.overflow = `hidden`;
-    }, 50);
+    albumPhoneCard.querySelector("img").onload = function () {
+      console.log(`album phone loaded`);
+      setTimeout(() => {
+        albumPhoneCard.classList.remove("hidden");
+        body.style.overflow = `hidden`;
+        main.style.overflow = `hidden`;
+      }, 50);
+    };
 
     let closeBtn = albumPhoneCard.querySelector(".cross");
 
@@ -517,17 +524,11 @@ function observeTracklist() {
 
 function showProfile(e) {
   if (innerWidth > 1200) {
-    fillProfile(e.target.innerText);
-
     membersList.classList.add("hidden");
 
     setTimeout(() => {
       membersList.classList.add("d-hidden");
-      memberProfile.classList.remove("d-hidden");
-
-      setTimeout(() => {
-        memberProfile.classList.remove("hidden");
-      }, 50);
+      fillProfile(e.target.innerText);
     }, 150);
   } else {
     let memberPhoneCard = document.createElement("div");
@@ -579,11 +580,14 @@ function showProfile(e) {
 `;
     footer.append(memberPhoneCard);
 
-    setTimeout(() => {
-      memberPhoneCard.classList.remove("hidden");
-      body.style.overflow = `hidden`;
-      main.style.overflow = `hidden`;
-    }, 50);
+    memberPhoneCard.querySelector("img").onload = function () {
+      console.log(`loaded`);
+      setTimeout(() => {
+        memberPhoneCard.classList.remove("hidden");
+        body.style.overflow = `hidden`;
+        main.style.overflow = `hidden`;
+      }, 50);
+    };
 
     let closeBtn = memberPhoneCard.querySelector(".cross");
 
@@ -613,6 +617,14 @@ function fillProfile(membName) {
       name.classList.add("active");
     }
   });
+
+  memberProfile.classList.remove("d-hidden");
+
+  memberProfileImg.onload = function () {
+    setTimeout(() => {
+      memberProfile.classList.remove("hidden");
+    }, 50);
+  };
 }
 
 function clearActive(clearArr) {
@@ -633,7 +645,6 @@ memberProfileNavNames.forEach((name) => {
 
     setTimeout(() => {
       fillProfile(e.target.innerText);
-      memberProfile.classList.remove("hidden");
     }, 300);
   });
 });
